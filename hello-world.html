@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <title>Eli Heuer’s Programming Blog</title>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <!--<link rel="stylesheet" href="//basehold.it/32/255/255/255">-->
+
+
+    <meta name="tags" content="hello-world" />
+
+</head>
+
+<div class="wrapper">
+    <div class="header">
+        <h1><a href="./">Eli Heuer’s Programming Blog<strong></strong></a></h1>
+        <hr class="large">
+    </div>
+<div class="content">
+<!--<section id="content" class="body">-->
+  <header>
+    <h2 class="entry-title">
+      <a href="./hello-world.html" rel="bookmark"
+         title="Permalink to Hello World">Hello World</a></h2>
+
+  </header>
+  <footer class="post-info">
+    <time class="published-post" datetime="2017-02-07T00:00:00-05:00">
+      February 07, 2017
+    </time>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Hello world, welcome to my blog! Here is a Fibonacci sequence generator in Python, a test of the syntax highlighter <a class="reference external" href="http://pygments.org/">Pygments</a>:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">temp</span> <span class="o">+</span> <span class="n">b</span>
+<span class="k">return</span> <span class="n">a</span>
+
+<span class="c1"># Display the first 15 Fibonacci numbers.</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+
+  </div><!-- /.entry-content -->
+<!--</section>-->
+</div>
+    <div class="about">
+        <h2 class="entry-title">Contact</h2>
+        <hr class="medium">
+        <p><a href="https://mastodon.social/users/elih">GNU Fediverse</a></p>
+        <p><a href="https://freenode.net/" target="_top">Freenode: elih</a></p>
+        <p><a href="https://twitter.com/eliheuer">Twitter</a></p>
+        <p><a href="https://github.com/eliheuer">GitHub</a></p>
+        <p><a href="mailto:elih@protonmail.com?Subject=Hello" target="_top">Email</a></p>
+
+    </div>
+    <div class="opensource">
+        <h2 class="entry-title">Open Source</h2>
+        <hr class="medium">
+        <p class="site-footer__type">This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. The theme is on GitHub <a href="https://github.com/eliheuer/pelican-elis-theme-css-grid">here</a> and the uncompiled content is <a href="https://github.com/eliheuer/elih.neocities.org">here</a>.</p>
+    </div>
+    <div class="copyright">
+        <h2 class="entry-title">Copyright</h2>
+        <hr class="medium">
+        <p class="site-footer__type">This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>. The theme is on GitHub <a href="https://github.com/eliheuer/pelican-elis-theme-css-grid">here</a> and the uncompiled content is <a href="https://github.com/eliheuer/elih.neocities.org">here</a>.</p>
+        <p class="site-footer__type">Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-ShareAlike 4.0 International <a href="https://creativecommons.org/licenses/by-sa/4.0/">(CC_BY-SA 4.0)</a> license.</p>
+        <p class="site-footer__type">Except where otherwise noted, all source code on this blog is licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3</a> License.</p>
+         <p class="site-footer__type">&copy; 2017</p>
+    </div>
+</div>
+
+</body>
+</html>
