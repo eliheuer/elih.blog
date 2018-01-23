@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Eli Heuer’s Blog - 2018</title><link href="https://elih.blog/" rel="alternate"></link><link href="https://elih.blog/feeds/2018.atom.xml" rel="self"></link><id>https://elih.blog/</id><updated>2018-01-23T00:00:00-05:00</updated><entry><title>Building a TTF to UFO Converter with Argparse</title><link href="https://elih.blog/ttf-to-ufo.html" rel="alternate"></link><published>2018-01-23T00:00:00-05:00</published><updated>2018-01-23T00:00:00-05:00</updated><author><name>Eli Heuer</name></author><id>tag:elih.blog,2018-01-23:/ttf-to-ufo.html</id><summary type="html">&lt;p&gt;If you have used command line software before you are probably familiar with flags, for example &lt;code&gt;--help&lt;/code&gt; for help or &lt;code&gt;-v&lt;/code&gt; for version. In this tutorial, I will demonstrate using the module &lt;strong&gt;argparse&lt;/strong&gt; to add flags to a Python script.&lt;/p&gt;
 &lt;p&gt;The script will convert a TTF font file to a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you have used command line software before you are probably familiar with flags, for example &lt;code&gt;--help&lt;/code&gt; for help or &lt;code&gt;-v&lt;/code&gt; for version. In this tutorial, I will demonstrate using the module &lt;strong&gt;argparse&lt;/strong&gt; to add flags to a Python script.&lt;/p&gt;
-&lt;p&gt;The script will convert a TTF font file to a &lt;a class="reference external" href="https://github.com/unified-font-object"&gt;UFO&lt;/a&gt; directory, UFO is a XML based format used for uncompiled fonts. To start, open a terminal and navigate to a directory where you want to work. To make a virtual environment that will keep dependancies contaied, enter the following commands:&lt;/p&gt;
+&lt;p&gt;The script will convert a TTF font file to a &lt;a class="reference external" href="https://github.com/unified-font-object"&gt;UFO&lt;/a&gt; directory, UFO is an XML based format used for uncompiled fonts. To start, open a terminal and navigate to a directory where you want to work. To make a virtual environment that will keep dependancies contained, enter the following commands:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 -m venv ttf2ufo
 👉 cd ttf2ufo
 👉 source bin/activate
 👉 mkdir working
 👉 cd working
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Runnging &lt;code&gt;source bin/activate&lt;/code&gt; activates the virtual environment, to deactivate simply enter &lt;code&gt;deactivate&lt;/code&gt;. Now that we are in the &lt;code&gt;venv&lt;/code&gt; we need to install the packages needed for the script, &lt;strong&gt;argparse&lt;/strong&gt;, &lt;strong&gt;defcon&lt;/strong&gt; and &lt;strong&gt;ufo-extractor&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Runnging &lt;code&gt;source bin/activate&lt;/code&gt; activates the virtual environment, to deactivate simply enter &lt;code&gt;deactivate&lt;/code&gt;. Now that we are in the &lt;code&gt;venv&lt;/code&gt; we need to install the packages needed for the script, &lt;strong&gt;argparse&lt;/strong&gt;, &lt;strong&gt;defcon&lt;/strong&gt; and, &lt;strong&gt;ufo-extractor&lt;/strong&gt;:&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/ufo-extractor"&gt;ufo-extractor&lt;/a&gt;: Extracts UFO files from defcon font objects.&lt;/div&gt;
 &lt;div class="line"&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/defcon/0.3.5"&gt;defcon&lt;/a&gt;: Creates a Python object from a given TTF.&lt;/div&gt;
@@ -38,7 +38,7 @@ usage: test.py [-h]
 optional arguments:
 -h, --help  show this help message and exit
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;It works, great. Help is the only built in flag that works without additional code, so let’s add &lt;code&gt;-i&lt;/code&gt; for input path and &lt;code&gt;-o&lt;/code&gt; for output path:&lt;/p&gt;
+&lt;p&gt;It works, great. Help is the only built-in flag that works without additional code, so let’s add &lt;code&gt;-i&lt;/code&gt; for input path and &lt;code&gt;-o&lt;/code&gt; for output path:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
 
 &lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -59,12 +59,12 @@ optional arguments:
 -i I        input file path
 -o O        output file path
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Next let’s try using the flags, replace &lt;code&gt;~/.fonts/test.ttf&lt;/code&gt; with the path to a TTF you want to use:&lt;/p&gt;
+&lt;p&gt;Next, let’s try using the flags, replace &lt;code&gt;~/.fonts/test.ttf&lt;/code&gt; with the path to a TTF you want to use:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 ttf-to-ufo.py -i ~/.fonts/test.ttf -o test.ufo
 inputfile: /home/user/.fonts/test.ttf
 outputfile: test.ufo
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now import &lt;strong&gt;defcon&lt;/strong&gt; and &lt;strong&gt;ufo-extractor&lt;/strong&gt;. Please note that even though &lt;strong&gt;ufo-extractor&lt;/strong&gt; is imported with &lt;code&gt;pip install ufo-extractor&lt;/code&gt;, it needs to be imported in python with &lt;code&gt;import extractor&lt;/code&gt;, confusing, I know. Move the &lt;strong&gt;argparse&lt;/strong&gt; code into a function that returns args and move the script part into a conditional statement. &lt;code&gt;if __name__ == &amp;quot;__main__&amp;quot;:&lt;/code&gt; tells Python to only run the script part when you are running the script from the comand line, and ignore it if you are importing &lt;code&gt;create_arg_parser&lt;/code&gt; into another Python program:&lt;/p&gt;
+&lt;p&gt;Now import &lt;strong&gt;defcon&lt;/strong&gt; and &lt;strong&gt;ufo-extractor&lt;/strong&gt;. Please note that even though &lt;strong&gt;ufo-extractor&lt;/strong&gt; is imported with &lt;code&gt;pip install ufo-extractor&lt;/code&gt;, it needs to be imported in python with &lt;code&gt;import extractor&lt;/code&gt;, confusing, I know. Move the &lt;strong&gt;argparse&lt;/strong&gt; code into a function that returns args and move the script part into a conditional statement. &lt;code&gt;if __name__ == &amp;quot;__main__&amp;quot;:&lt;/code&gt; tells Python to only run the script part when you are running the script from the command line, and ignore it if you are importing &lt;code&gt;create_arg_parser&lt;/code&gt; into another Python program:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;defcon&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;extractor&lt;/span&gt;
@@ -89,7 +89,7 @@ outputfile: test.ufo
     &lt;span class="n"&gt;ufo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ufo_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Done.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If you run this script with &lt;code&gt;-i&lt;/code&gt; and &lt;code&gt;-o&lt;/code&gt; a UFO directory should be generated. If you dont give a full file path for &lt;code&gt;-o&lt;/code&gt; and just enter a file name like this &lt;code&gt;test.ufo&lt;/code&gt;, a ufo directory will be created in the same directory as the script:&lt;/p&gt;
+&lt;p&gt;If you run this script with &lt;code&gt;-i&lt;/code&gt; and &lt;code&gt;-o&lt;/code&gt; a UFO directory should be generated. If you don’t give a full file path for &lt;code&gt;-o&lt;/code&gt; and just enter a file name like this &lt;code&gt;test.ufo&lt;/code&gt;, a ufo directory will be created in the same directory as the script:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 ttf-to-ufo.py -i ~/.fonts/test.ttf -o ~/test.ufo
 ttf_path:  /home/eli/.fonts/test.ttf
 ufo_path: /home/eli/test.ufo
