@@ -1,5 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Eli Heuer’s Blog</title><link href="https://elih.blog/" rel="alternate"></link><link href="https://elih.blog/feeds/all.atom.xml" rel="self"></link><id>https://elih.blog/</id><updated>2018-01-09T00:00:00-05:00</updated><entry><title>Project Euler in Rust: Problem One</title><link href="https://elih.blog/rust-project-euler-001.html" rel="alternate"></link><published>2018-01-09T00:00:00-05:00</published><updated>2018-01-09T00:00:00-05:00</updated><author><name>Eli Heuer</name></author><id>tag:elih.blog,2018-01-09:/rust-project-euler-001.html</id><summary type="html">&lt;p&gt;If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Eli Heuer’s Blog</title><link href="https://elih.blog/" rel="alternate"></link><link href="https://elih.blog/feeds/all.atom.xml" rel="self"></link><id>https://elih.blog/</id><updated>2018-01-23T00:00:00-05:00</updated><entry><title>Building a TTF to UFO Converter with Argparse</title><link href="https://elih.blog/ttf-to-ufo.html" rel="alternate"></link><published>2018-01-23T00:00:00-05:00</published><updated>2018-01-23T00:00:00-05:00</updated><author><name>Eli Heuer</name></author><id>tag:elih.blog,2018-01-23:/ttf-to-ufo.html</id><summary type="html">&lt;p&gt;If you have used command line software before you are probably familiar with flags, for example &lt;code&gt;--help&lt;/code&gt; for help or &lt;code&gt;-v&lt;/code&gt; for version. In this tutorial, I will demonstrate using the module &lt;strong&gt;argparse&lt;/strong&gt; to add flags to a Python script.&lt;/p&gt;
+&lt;p&gt;The script will convert a TTF font file to a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you have used command line software before you are probably familiar with flags, for example &lt;code&gt;--help&lt;/code&gt; for help or &lt;code&gt;-v&lt;/code&gt; for version. In this tutorial, I will demonstrate using the module &lt;strong&gt;argparse&lt;/strong&gt; to add flags to a Python script.&lt;/p&gt;
+&lt;p&gt;The script will convert a TTF font file to a &lt;a class="reference external" href="https://github.com/unified-font-object"&gt;UFO&lt;/a&gt; directory, UFO is a XML based format used for uncompiled fonts. To start, open a terminal and navigate to a directory where you want to work. To make a virtual environment that will keep dependancies contaied, enter the following commands:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 -m venv ttf2ufo
+👉 cd ttf2ufo
+👉 source bin/activate
+👉 mkdir working
+👉 cd working
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Runnging &lt;code&gt;source bin/activate&lt;/code&gt; activates the virtual environment, to deactivate simply enter &lt;code&gt;deactivate&lt;/code&gt;. Now that we are in the &lt;code&gt;venv&lt;/code&gt; we need to install the packages needed for the script, &lt;strong&gt;argparse&lt;/strong&gt;, &lt;strong&gt;defcon&lt;/strong&gt; and &lt;strong&gt;ufo-extractor&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/ufo-extractor"&gt;ufo-extractor&lt;/a&gt;: Extracts UFO files from defcon font objects.&lt;/div&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/defcon/0.3.5"&gt;defcon&lt;/a&gt;: Creates a Python object from a given TTF.&lt;/div&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/argparse/1.4.0"&gt;argparse&lt;/a&gt;: Command line interface tool, gets input and output location.&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Install these dependencies with &lt;strong&gt;pip&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 pip install --upgrade ufo-extractor defcon argparse
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we have everything installed and are ready to write the script, in the &lt;code&gt;ttf2ufo/working/&lt;/code&gt; directory, make a new Python file and open it with a text editor(Nano, emacs, etc...):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 touch ttf-to-ufo.py
+👉 emacs ttf-to-ufo.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now start the script by importing &lt;code&gt;argparse&lt;/code&gt;, make a new &lt;strong&gt;argparse&lt;/strong&gt; object called parser and call &lt;code&gt;parser.parse_args()&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
+
+&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Save the script an run it from the command line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 ttf-to-ufo.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nothing happens... try running it with a &lt;code&gt;--help&lt;/code&gt; flag:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 ttf-to-ufo.py --help
+
+usage: test.py [-h]
+
+optional arguments:
+-h, --help  show this help message and exit
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It works, great. Help is the only built in flag that works without additional code, so let’s add &lt;code&gt;-i&lt;/code&gt; for input path and &lt;code&gt;-o&lt;/code&gt; for output path:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
+
+&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-i&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;input file path&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-o&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;output file path&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;inputfile:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;outputfile:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now if we run the script with a help flag again, we should get something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 ttf-to-ufo.py --help
+
+usage: test.py [-h] [-i I] [-o O]
+
+optional arguments:
+-h, --help  show this help message and exit
+-i I        input file path
+-o O        output file path
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Next let’s try using the flags, replace &lt;code&gt;~/.fonts/test.ttf&lt;/code&gt; with the path to a TTF you want to use:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 ttf-to-ufo.py -i ~/.fonts/test.ttf -o test.ufo
+inputfile: /home/user/.fonts/test.ttf
+outputfile: test.ufo
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now import &lt;strong&gt;defcon&lt;/strong&gt; and &lt;strong&gt;ufo-extractor&lt;/strong&gt;. Please note that even though &lt;strong&gt;ufo-extractor&lt;/strong&gt; is imported with &lt;code&gt;pip install ufo-extractor&lt;/code&gt;, it needs to be imported in python with &lt;code&gt;import extractor&lt;/code&gt;, confusing, I know. Move the &lt;strong&gt;argparse&lt;/strong&gt; code into a function that returns args and move the script part into a conditional statement. &lt;code&gt;if __name__ == &amp;quot;__main__&amp;quot;:&lt;/code&gt; tells Python to only run the script part when you are running the script from the comand line, and ignore it if you are importing &lt;code&gt;create_arg_parser&lt;/code&gt; into another Python program:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;defcon&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;extractor&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;create_arg_parser&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-i&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;input filename&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-o&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;output filename&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_arg_parser&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;ttf_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;
+    &lt;span class="n"&gt;ufo_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ttf_path: &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ttf_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ufo_path:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ufo_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c1"&gt;# Make UFO&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Generating UFO...&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ufo_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ufo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;defcon&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Font&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;extractor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extractUFO&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ttf_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ufo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;ufo&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;save&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ufo_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Done.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you run this script with &lt;code&gt;-i&lt;/code&gt; and &lt;code&gt;-o&lt;/code&gt; a UFO directory should be generated. If you dont give a full file path for &lt;code&gt;-o&lt;/code&gt; and just enter a file name like this &lt;code&gt;test.ufo&lt;/code&gt;, a ufo directory will be created in the same directory as the script:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;👉 python3 ttf-to-ufo.py -i ~/.fonts/test.ttf -o ~/test.ufo
+ttf_path:  /home/eli/.fonts/test.ttf
+ufo_path: /home/eli/test.ufo
+Generating UFO... /home/eli/test.ufo
+Done.
+&lt;/pre&gt;&lt;/div&gt;
+</content><category term="Python"></category><category term="Defcon"></category></entry><entry><title>Project Euler in Rust: Problem One</title><link href="https://elih.blog/rust-project-euler-001.html" rel="alternate"></link><published>2018-01-09T00:00:00-05:00</published><updated>2018-01-09T00:00:00-05:00</updated><author><name>Eli Heuer</name></author><id>tag:elih.blog,2018-01-09:/rust-project-euler-001.html</id><summary type="html">&lt;p&gt;If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.&lt;/p&gt;
 &lt;p&gt;Find the sum of all the multiples of 3 or 5 below 1000.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;fn&lt;/span&gt; &lt;span class="nf"&gt;question&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Find the sum of …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.&lt;/p&gt;
