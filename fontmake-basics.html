@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="//basehold.it/37.5/255/0/0">
 
         <meta name="tags" content="Python" />
-        <meta name="tags" content="Defcon" />
+        <meta name="tags" content="Fontmake" />
 </head>
 
 <div class="wrapper" id="baseline">
@@ -21,22 +21,24 @@
 <div class="content">
     <header>
         <hr>
-        <h2 id="article-header" class="entry-title">Building a TTF to UFO Converter with Argparse</h2>
+        <h2 id="article-header" class="entry-title">Fontmake Basics</h2>
         
     </header>
     <footer class="post-info">
-    <time class="published-post" datetime="2018-01-23T00:00:00-05:00">
-      January 23, 2018
+    <time class="published-post" datetime="2018-06-04T00:00:00-05:00">
+      June 04, 2018
     </time>
   </footer>
   <div class="article-content">
-    <p>If you have used command line software before you are probably familiar with flags, for example <code>--help</code> for help or <code>-v</code> for version. In this tutorial, I will demonstrate using the module <strong>argparse</strong> to add flags to a Python script.</p>
+    <p>Fontmake is a command line tool for compiling font files. This post is intended
+as a simple beginners guide to using the software.</p>
+<p>If you have used command line software before you are probably familiar with flags, for example <code>--help</code> for help or <code>-v</code> for version. In this tutorial, I will demonstrate using the module <strong>argparse</strong> to add flags to a Python script.</p>
 <p>The script will convert a TTF font file to a <a class="reference external" href="https://github.com/unified-font-object">UFO</a> directory, UFO is an XML based format used for uncompiled fonts. To start, open a terminal and navigate to a directory where you want to work. To keep dependencies contained, make a virtual environment by entering the following commands:</p>
-<div class="highlight"><pre><span></span>👉 python3 -m venv ttf2ufo
-👉 cd ttf2ufo
-👉 source bin/activate
-👉 mkdir working
-👉 cd working
+<div class="highlight"><pre><span></span>python3 -m venv ttf2ufo
+cd ttf2ufo
+source bin/activate
+mkdir working
+cd working
 </pre></div>
 <p>Runnging <code>source bin/activate</code> activates the virtual environment, to deactivate simply enter <code>deactivate</code>. Now that we are in the <code>venv</code> we need to install the packages needed for the script, <strong>argparse</strong>, <strong>defcon</strong> and, <strong>ufo-extractor</strong>:</p>
 <div class="line-block">
