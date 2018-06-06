@@ -30,10 +30,19 @@
     </time>
   </footer>
   <div class="article-content">
-    <p><a class="reference external" href="https://github.com/googlei18n/fontmake">Fontmake</a> is a command line tool for compiling font files. This post is intended as a simple beginners guide to using the software.</p>
-<p>First I make a venv <cite>python3 -m venv type-tools</cite>. Then start the venv with
-<cite>source ..type/tools/bin/activate</cite>.</p>
-<p>Then clone the repo somewhere sensible, Like <cite>~/Type/Tools/</cite>, use <cite>git clone https://github.com/googlei18n/fontmake.git</cite>.</p>
+    <p><a class="reference external" href="https://github.com/googlei18n/fontmake">Fontmake</a> is a command line tool
+for compiling font files. This post is intended as a simple beginner's guide
+to using the software.</p>
+<p>First make a new <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a>, this
+is where you will install Fontmake, where you put the <cite>venv</cite> dosn't really
+matter. Make a new venv with the command: <code>python3 -m venv type-tools</code>.
+Then start the venv with <code>source type-tools/bin/activate</code>, you can
+deactivate the venv with <code>deactivate</code>.</p>
+<p>Next we want to clone the repo and install it in editable mode. This will
+allow us to make changes to Fontmake as we work. , Find a directory to keep
+the repo, something like <cite>~/Type/Tools/</cite>, then use
+<cite>git clone https://github.com/googlei18n/fontmake.git</cite>, to get the latest
+master branch from GitHub.</p>
 <p>Install in editable mode:</p>
 <div class="highlight"><pre><span></span>cd fontmake
 pip install -e .
@@ -74,8 +83,15 @@ try outputing just a <cite>.ttf</cite> file:</p>
 </pre></div>
 <p>This will output a directory called <cite>master_ttf</cite> in the same directory as the
 UFO file.</p>
-<p>Fontmake glues togets various Python dependeinces, looking in <cite>requierments.txt</cite> will
-show what is installed when pip installing ttfautohint.</p>
+<p>Fontmake glues together various Python dependeinces, looking in <cite>requierments.txt</cite> will
+show what is installed when <cite>pip install -e .</cite> is run. To use some of the
+fontmake features, we will need to install some non python dependencies, for
+example <a class="reference external" href="https://www.freetype.org/ttfautohint/">ttfautohint</a> will need to be installed.</p>
+<p>to do this I use <a class="reference external" href="https://github.com/source-foundry/ttfautohint-build">https://github.com/source-foundry/ttfautohint-build</a>, like so:</p>
+<div class="highlight"><pre><span></span>$ git clone https://github.com/source-foundry/ttfautohint-build.git
+$ cd ttfautohint-build
+$ make
+</pre></div>
 
   </div>
 </div>
