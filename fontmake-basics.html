@@ -33,28 +33,29 @@
     <p><a class="reference external" href="https://github.com/googlei18n/fontmake">Fontmake</a> is a command line tool
 for compiling font files. This post is intended as a simple beginner's guide
 to using the software.</p>
-<p>First make a new <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a>, this
-is where you will install Fontmake, where you put the <cite>venv</cite> dosn't really
-matter. Make a new venv with the command: <code>python3 -m venv type-tools</code>.
-Then start the venv with <code>source type-tools/bin/activate</code>, you can
-deactivate the venv with <code>deactivate</code>.</p>
-<p>Next we want to clone the repo and install it in editable mode. This will
-allow us to make changes to Fontmake as we work. , Find a directory to keep
-the repo, something like <cite>~/Type/Tools/</cite>, then use
-<cite>git clone https://github.com/googlei18n/fontmake.git</cite>, to get the latest
-master branch from GitHub.</p>
-<p>Install in editable mode:</p>
-<div class="highlight"><pre><span></span>cd fontmake
+<p>First, make a new <a class="reference external" href="https://docs.python.org/3/library/venv.html">venv</a>, this
+is where you will install Fontmake, where you put the <code>venv</code> is up to
+you, anywhere works. Make a new venv with the command:
+<code>python3 -m venv type-tools</code>. Then start the venv with:
+<code>source type-tools/bin/activate</code>, you can deactivate
+the venv at anytime with: <code>deactivate</code>.</p>
+<p>Next, we want to clone the repo and install it in <strong>editable mode</strong>. This will
+allow us to make changes to Fontmake as we work. Find a directory to keep
+the repo, something like <code>~/Type/Tools/</code>, then use <code>git clone</code>
+to get the latest master branch from GitHub. Enter the following commands:</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/googlei18n/fontmake.git
+cd fontmake
 pip install -e .
 pip list
 </pre></div>
-<p>Pip list should give you all the dependencies installed with pip, plus font
-make installed in editable mode.</p>
+<p><code>pip list</code> should give you all the dependencies installed with
+<code>pip</code>, plus <code>fontmake</code> installed in editable mode,
+something like this:</p>
 <div class="highlight"><pre><span></span>booleanOperations (0.8.0)
 compreffor (0.4.6)
 cu2qu (1.5.0)
 defcon (0.5.1)
-fontmake (1.5.0.dev0, /home/eli/Type/Tools/fontmake/Lib)
+fontmake (1.5.0.dev0, .../Type/Tools/fontmake/Lib)
 fontMath (0.4.4)
 fonttools (3.26.0)
 glyphsLib (2.3.0)
@@ -66,32 +67,26 @@ setuptools (32.3.1)
 ufo2ft (1.1.0)
 ufoLib (2.1.1)
 </pre></div>
-<p>This should be all set up and ready to use now.</p>
-<p>Now we need a font repo to try it on. I'm using a repo I'm working on here:
-<a class="reference external" href="https://github.com/eliheuer/woodbine.git">https://github.com/eliheuer/woodbine.git</a>,
-but use any libre type repo you wish.</p>
-<p>Navigate to the <cite>sources</cite> directory. The most basic use of fontmake will look
+<p>Fontmake should be all set up and ready to use now.</p>
+<p>Now we need a font repo to try it on. I'm using
+<a class="reference external" href="https://github.com/eliheuer/woodbine.git">github.com/eliheuer/woodbine.git</a>,
+but use any source file you want.</p>
+<p>Navigate to the directory with the <code>.glyphs</code> or
+<code>.ufo</code> source file. The most basic use of fontmake will look
 something like this:</p>
 <div class="highlight"><pre><span></span>fontmake -u Woodbine-Regular.ufo
 </pre></div>
 <p>This will output two directories in your current working directory, probably
-named <cite>master_otf</cite> and <cite>master_ttf</cite>, each containing an output font file. If we
-want to just output one format, we can just enter <cite>fontmake</cite> as a command and
-we will see the <cite>-o</cite> option allows us to specify an output format. For example,
-try outputing just a <cite>.ttf</cite> file:</p>
+named <code>master_otf</code> and <code>master_ttf</code>, each containing an output
+font file. If we want to just output one format, we can just enter
+<code>fontmake</code> as a command and we will see the <code>-o</code> option allows
+us to specify an output format. For example, try outputing just a
+<code>.ttf</code> file:</p>
 <div class="highlight"><pre><span></span>fontmake -u Woodbine-Regular.ufo -o ttf
 </pre></div>
 <p>This will output a directory called <cite>master_ttf</cite> in the same directory as the
-UFO file.</p>
-<p>Fontmake glues together various Python dependeinces, looking in <cite>requierments.txt</cite> will
-show what is installed when <cite>pip install -e .</cite> is run. To use some of the
-fontmake features, we will need to install some non python dependencies, for
-example <a class="reference external" href="https://www.freetype.org/ttfautohint/">ttfautohint</a> will need to be installed.</p>
-<p>to do this I use <a class="reference external" href="https://github.com/source-foundry/ttfautohint-build">https://github.com/source-foundry/ttfautohint-build</a>, like so:</p>
-<div class="highlight"><pre><span></span>$ git clone https://github.com/source-foundry/ttfautohint-build.git
-$ cd ttfautohint-build
-$ make
-</pre></div>
+source file.</p>
+<p>That's it for basic use, I will add some more advanced use cases soon.</p>
 
   </div>
 </div>
