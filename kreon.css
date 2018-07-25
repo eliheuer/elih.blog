@@ -5,6 +5,7 @@
     font-family: 'Kreon-VF';
     src: url('fonts/Kreon-VF.ttf');
     format("truetype");
+    font-weight: bold;
 }
 
 /* Basic style */
@@ -35,7 +36,7 @@ hr {
 
 .variable {
     font-family: 'Kreon-VF';
-    --wght: 300;
+    --wght: 0;
     font-variation-settings: 'wght' var(--wght);
 }
 
