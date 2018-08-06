@@ -3,7 +3,7 @@
 /* load local working version of font */
 @font-face {
     font-family: 'Kreon-VF';
-    src: url('fonts/Kreon-VF.ttf');
+    src: url('https://elih.blog/fonts/Kreon-VF.ttf');
     format("truetype");
     font-weight: bold;
 }
