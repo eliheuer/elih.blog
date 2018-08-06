@@ -29,6 +29,7 @@ hr {
     border: 0;
     border-top: 2px solid #000000;
     margin: 0;
+    margin-bottom: 1em;
     padding: 0; 
 }
 
@@ -83,9 +84,15 @@ hr {
     box-shadow: 4px 4px 0px #000000;
 }
 
+.float-above {
+    position: fixed;
+    right: 24px;
+    top: 24px;
+}
+
 .intro { 
     grid-column-start: 1; 
-    grid-column-end: 3; 
+    grid-column-end: 4; 
     border-color: #000000;
     border-width: 2px;
     border-style: solid; 
@@ -156,8 +163,9 @@ hr {
 /* colors */
 .red    { color: red;   }
 .blue   { color: blue; }
-.upone  { margin-top: -3rem; }
-
+.green  { color: #22aa00;}
+.uponea  { margin-top: -3.4rem; }
+.uponeb  { margin-top: -2.65rem; }
 /* UI */
 label {
     margin-top: 0.75rem;
@@ -207,7 +215,9 @@ input[type=range].slider {
     background-color: transparent;
     width: 100%;
     margin-top: 1.25rem;
+    /*
 	margin-bottom: 1.25rem;
+    */
     z-index: 1;
     position: relative;
 }
@@ -276,5 +286,10 @@ input[type=range].slider:focus::-webkit-slider-runnable-track {
     .overlay {
         grid-column-start: 1;
         grid-column-end: 2;
+    }
+    .float-above {
+        position: fixed;
+        right: 0px;
+        top: 0px;
     }
 }
