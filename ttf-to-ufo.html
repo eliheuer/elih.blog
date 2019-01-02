@@ -13,11 +13,32 @@
 </head>
 
 <div class="wrapper" id="baseline">
-    
+
     <div class="header">
         <h1><a href="./">Eli Heuer’s Blog</a></h1>
     </div>
 
+<!--
+    <div class="menu">
+        <h4><a href="./about">About</a></h4>
+        <h4><a href="./">Archive</a></h4>
+        <h4><a href="./contact">Contact</a></h4>
+    </div>
+-->
+
+    <!--
+    <div class="about">
+        <h2><a href="./about">About</a></h2>
+    </div>
+
+    <div class="archive">
+        <h2><a href="./">Archive</a></h2>
+    </div>
+
+    <div class="contact">
+        <h2><a href="./contact">Contact</a></h2>
+    </div>
+    -->
 <div class="content">
     <header>
         <hr>
@@ -30,20 +51,13 @@
     </time>
   </footer>
   <div class="article-content">
-    <p>If you have used command line software before you are probably familiar with
-flags, for example <code>--help</code> for help or <code>-v</code> for version. In this
-tutorial, I will demonstrate using the module <strong>argparse</strong> to add flags to a
-Python script.</p>
-<p>The script will convert a TTF font file to a
-<a class="reference external" href="https://github.com/unified-font-object">UFO</a> directory, UFO is an XML based
-format used for uncompiled fonts. To start, open a terminal and navigate to a
-directory where you want to work. To keep dependencies contained, make a virtual
-environment by entering the following commands:</p>
-<div class="highlight"><pre><span></span>python3 -m venv ttf2ufo
-cd ttf2ufo
-source bin/activate
-mkdir working
-cd working
+    <p>If you have used command line software before you are probably familiar with flags, for example <code>--help</code> for help or <code>-v</code> for version. In this tutorial, I will demonstrate using the module <strong>argparse</strong> to add flags to a Python script.</p>
+<p>The script will convert a TTF font file to a <a class="reference external" href="https://github.com/unified-font-object">UFO</a> directory, UFO is an XML based format used for uncompiled fonts. To start, open a terminal and navigate to a directory where you want to work. To keep dependencies contained, make a virtual environment by entering the following commands:</p>
+<div class="highlight"><pre><span></span>👉 python3 -m venv ttf2ufo
+👉 cd ttf2ufo
+👉 source bin/activate
+👉 mkdir working
+👉 cd working
 </pre></div>
 <p>Runnging <code>source bin/activate</code> activates the virtual environment, to deactivate simply enter <code>deactivate</code>. Now that we are in the <code>venv</code> we need to install the packages needed for the script, <strong>argparse</strong>, <strong>defcon</strong> and, <strong>ufo-extractor</strong>:</p>
 <div class="line-block">
@@ -137,6 +151,7 @@ Done.
   </div>
 </div>
 
+<!--
     <div class="contact">
         <hr>
         <h3>Contact</h3>
@@ -150,13 +165,13 @@ Done.
             <li><a href="https://www.twitch.tv/elih">Twitch</a></li>
         </ul>
     </div>
+-->
 
     <div class="tags" id="box">
         <hr><a href="./tags"><h3>Tags</h3></a><ul>
             <li><a href="./tag/math">Math</a></li>
             <li><a href="./tag/rust">Rust</a></li>
             <li><a href="./tag/python">Python</a></li>
-            <li><a href="./tag/arabic">العربية</a></li>
             <li><a href="./tag/trufont">TruFont</a></li>
             <li><a href="./tag/ufo">UFO</a></li>
             <li id="margin-bottom"><a href="./tag/calligraphy">Calligraphy</a></li>
@@ -188,13 +203,20 @@ Done.
       <p><a href="https://elih.blog/feeds/all.atom">Atom</a></p>
     </div>
 
+<!--
     <div class="software">
-        <div class="software__icon">
-        <img src="./images/tux-linux.gif" alt="Tux">
-    </div>
+
+        <div class="tux__icon">
+            <img src="./images/tux.gif" alt="Tux">
+        </div>
+
+        <div class="gnu__icon">
+            <img src="./images/gnu.gif" alt="GNU">
+        </div>
+
     <p>This site was built with free software.</p>
     </div>
-
+-->
 </div>
 </body>
 </html>
