@@ -93,7 +93,7 @@ a:link{
     border-bottom-width:2px
 }
 h1{
-    font-variation-settings: 'wght' var(900);
+    font-variation-settings: 'wght' 900;
     font-size:2em;
     letter-spacing:-0.04em;
     margin:.24em 0 .25em 0
@@ -123,6 +123,9 @@ h3 a:link{
 h4{
     display:inline-block
 }
+p{
+  font-variation-settings: 'wght' 400;
+}
 img{
     display:table-cell;
     height:100%;
@@ -142,6 +145,7 @@ hr{
     padding:0
 }
 .published{
+    font-variation-settings: 'wght' 400;
     color:#888;
     /*float:right*/
     display:block;
