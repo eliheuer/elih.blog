@@ -61,10 +61,17 @@
 .highlight .vg{color:#e0e0ee}
 .highlight .vi{color:#e0e0ee}
 .highlight .il{color:#9b59b6}
+@font-face {
+    font-family: 'Inter';
+    src: url('Inter.var.ttf');
+    format("truetype");
+    font-weight: bold;
+}
+
 body{
     background-color:#eee;
     color:#000;
-    font-family:sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size:1.25em;
     line-height:1.5em
 }
