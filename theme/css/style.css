@@ -219,13 +219,13 @@ code{
 @media screen and (max-width: 1300px){
     .article-index{
         grid-column:1/9;
-        grid-row:3/5
+        grid-row:2
     }
 }
 @media screen and (max-width: 1050px){
     .article-index{
         grid-column:1/9;
-        grid-row:4/5
+        grid-row:2
     }
 }
 .content{
@@ -328,40 +328,6 @@ code{
         grid-row:10
     }
 }
-.software{
-    margin:8.5em 0;
-    text-align:center;
-    position:relative;
-    grid-column:1/9;
-    grid-row:7
-}
-@media screen and (max-width: 1050px){
-    .software{
-        grid-row:12
-    }
-}
-.tux__icon{
-    height:128px;
-    width:128px;
-    grid-column:1/4;
-    grid-row:8
-}
-@media screen and (max-width: 1050px){
-    .tux__icon{
-        grid-row:12
-    }
-}
-.gnu__icon{
-    height:128px;
-    width:128px;
-    grid-column:5/9;
-    grid-row:8
-}
-@media screen and (max-width: 1050px){
-    .gnu__icon{
-        grid-row:12
-    }
-}
 .youtube-4x3{
     padding-bottom:75%
 }
@@ -383,4 +349,3 @@ code{
     margin:0;
     border:0
 }
-/*# sourceMappingURL=style.css.map */
