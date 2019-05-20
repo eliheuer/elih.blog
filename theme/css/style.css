@@ -93,8 +93,8 @@ a:link{
     border-bottom-width:2px
 }
 h1{
+    font-variation-settings: 'wght' var(900);
     font-size:2em;
-    font-weight:700;
     letter-spacing:-0.04em;
     margin:.24em 0 .25em 0
 }
@@ -142,11 +142,11 @@ hr{
     padding:0
 }
 .published{
-    color:#666;
+    color:#888;
     /*float:right*/
     display:block;
-    float:none
-
+    float:none;
+    margin-bottom:1em
 }
 @media screen and (max-width: 1050px){
     .published{
@@ -212,7 +212,7 @@ code{
 }
 
 .header{
-    grid-column:1/9;
+    grid-column:2/9;
     grid-row:1;
     margin:0
 }
@@ -234,7 +234,7 @@ code{
 }
 @media screen and (max-width: 1300px){
     .article-index{
-        grid-column:1/9;
+        grid-column:2/7;
         grid-row:2
     }
 }
@@ -242,6 +242,11 @@ code{
     .article-index{
         grid-column:1/9;
         grid-row:2
+    }
+    .header{
+        grid-column:1/9;
+        grid-row:1;
+        margin:0
     }
 }
 .content{
