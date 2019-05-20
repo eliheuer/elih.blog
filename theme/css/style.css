@@ -136,7 +136,10 @@ hr{
 }
 .published{
     color:#666;
-    float:right
+    /*float:right*/
+    display:block;
+    float:none
+
 }
 @media screen and (max-width: 1050px){
     .published{
