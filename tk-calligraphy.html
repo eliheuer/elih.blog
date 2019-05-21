@@ -1,55 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Eli Heuer’s Blog</title>
-    <meta charset="utf-8" />
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="//basehold.it/37.5/255/0/0">
-
-        <meta name="tags" content="Calligraphy" />
-        <meta name="tags" content="Python" />
+  <title>Eli Heuer’s Blog</title>
+  <meta charset="utf-8" />
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
 </head>
-
-<div class="wrapper" id="baseline">
-
-    <div class="header">
-        <h1><a href="./">Eli Heuer’s Blog</a></h1>
-    </div>
-
-<!--
-    <div class="menu">
-        <h4><a href="./about">About</a></h4>
-        <h4><a href="./">Archive</a></h4>
-        <h4><a href="./contact">Contact</a></h4>
-    </div>
--->
-
-    <!--
-    <div class="about">
-        <h2><a href="./about">About</a></h2>
-    </div>
-
-    <div class="archive">
-        <h2><a href="./">Archive</a></h2>
-    </div>
-
-    <div class="contact">
-        <h2><a href="./contact">Contact</a></h2>
-    </div>
-    -->
-<div class="content">
-    <header>
-        <hr>
-        <h2 id="article-header" class="entry-title">Tk Calligraphy: Work Log One</h2>
-        
-    </header>
-    <footer class="post-info">
-    <time class="published-post" datetime="2017-03-27T00:00:00-05:00">
-      March 27, 2017
-    </time>
-  </footer>
+<div class="wrapper" >
+<div class="header" >
+    <h1>Eli Heue<span class="headline_kern">r’s</span> Blog</h1>
+</div>
   <div class="article-content">
     <p><a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> is a cross-platform GUI toolkit and part of the Python Standard Library. It comes pre-installed with Python for MacOS and Windows. If you are using a Debian based version of GNU+Linux like Ubuntu, it can be installed from the terminal:</p>
 <div class="highlight"><pre><span></span><span class="go">sudo apt-get install python3-tk</span>
@@ -68,76 +28,20 @@
 <p>Tkinter is simple, fast, and has pleanty of <a class="reference external" href="https://wiki.python.org/moin/TkInter">documentation</a>. There are other ways to create cross-platform desktop applications with Python, notably <a class="reference external" href="https://riverbankcomputing.com/software/pyqt/intro">Qt</a>, <a class="reference external" href="https://kivy.org/">Kivy</a> and <a class="reference external" href="https://www.wxwidgets.org/">wxWidgets</a>. But all these frameworks add complexity to the project and make it more difficult for other programmers to contribute to. So, I wanted to learn more about Tkinter, and building a simple paint program seemed like a good place to start. I started with refactoring the code from <a class="reference external" href="https://funpython.wordpress.com/2015/11/08/simple-drawing-program-part-1/">this blog post</a>, and after a bit of work I had the beginings of a Calligraphy application.</p>
 <img alt="tk-calligraphy" src="images/tk-calligraphy/tk-calligraphy-screenshot-01.png" />
 <p>The GitHub repo for this project can be found <a class="reference external" href="https://github.com/eliheuer/tk-calligraphy">here</a>. My main goal for Tk Calligraphy is to have brushes designed spcifically for Arabic and Hiragana and to have suport for pressure sensitive drawing tablets.</p>
-
   </div>
 </div>
-
-<!--
-    <div class="contact">
-        <hr>
-        <h3>Contact</h3>
-        <ul>
-            <li><a href="https://mastodon.social/users/elih">Mastodon</a></li>
-            <li><a href="https://twitter.com/eliheuer">Twitter</a></li>
-            <li><a href="https://github.com/eliheuer">GitHub</a></li>
-            <li><a href="mailto:elih@protonmail.com?Subject=Hello">Email</a></li>
-            <li><a href="https://www.youtube.com/user/eliheuer/videos">YouTube</a></li>
-            <li><a href="https://www.instagram.com/elih.photos/">Instagram</a></li>
-            <li><a href="https://www.twitch.tv/elih">Twitch</a></li>
-        </ul>
-    </div>
--->
-
-    <div class="tags" id="box">
-        <hr><a href="./tags"><h3>Tags</h3></a><ul>
-            <li><a href="./tag/math">Math</a></li>
-            <li><a href="./tag/rust">Rust</a></li>
-            <li><a href="./tag/python">Python</a></li>
-            <li><a href="./tag/trufont">TruFont</a></li>
-            <li><a href="./tag/ufo">UFO</a></li>
-            <li id="margin-bottom"><a href="./tag/calligraphy">Calligraphy</a></li>
-        </ul>
-    </div>
-
-    <div class="source-code" id="box">
-        <hr>
-        <h3>Source Code</h3>
-        <p class="site-footer__type">This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which is built with <a href="http://python.org">Python</a>. The theme is on GitHub <a href="https://github.com/eliheuer/pelican-elis-theme">here</a> and the uncompiled content is <a href="https://github.com/eliheuer/blog">here</a>.</p>
-    </div>
-
-    <div class="licensing" id="box">
-        <hr>
-        <h3>Licensing</h3>
-        <p>Except where otherwise noted,
-            content on this site is licensed under a Creative Commons Attribution-ShareAlike 4.0 International
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/">(CC_BY-SA 4.0)</a> license.</p>
-        <p>Except where otherwise noted,
-            all source code on this blog is licensed under the
-            <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3</a> License.</p>
-        <p>&copy; 2018</p>
-    </div>
-
-    <div class="feeds">
-      <hr>
-      <h3>Feeds</h3>
-      <!-- <p><a href="https://elih.blog/feeds/all.atom">RSS</a></p> -->
-      <p><a href="https://elih.blog/feeds/all.atom">Atom</a></p>
-    </div>
-
-<!--
-    <div class="software">
-
-        <div class="tux__icon">
-            <img src="./images/tux.gif" alt="Tux">
-        </div>
-
-        <div class="gnu__icon">
-            <img src="./images/gnu.gif" alt="GNU">
-        </div>
-
-    <p>This site was built with free software.</p>
-    </div>
--->
+<div class="source-code" id="box">
+  <hr>
+  <h3>Source Code</h3>
+  <p class="site-footer__type">This blog is made with HTML, CSS and Emacs as an editor. All source code is on GitHub <a href="https://github.com/eliheuer/eliheuer.github.io">here</a>.</p>
+</div>
+<div class="licensing" id="box">
+  <hr>
+  <h3>Licensing</h3>
+  <p>Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-ShareAlike 4.0 International
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/">(CC_BY-SA 4.0)</a> license.</p>
+  <p>&copy; 2018</p>
+</div>
 </div>
 </body>
 </html>
