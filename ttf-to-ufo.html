@@ -8,59 +8,57 @@
 </head>
 <div class="wrapper" >
 <div class="header" >
-    <h1>Eli Heue<span class="headline_kern">r’s</span> Blog</h1>
+    <h1>Eli Heuer’s Blog</h1>
 </div>
 <div class="content">
-    <header>
-        <hr>
-        <h2 id="article-header" class="entry-title">Building a TTF to UFO Converter with Argparse</h2>
-    </header>
-    <footer class="post-info">
-    <time class="published-post" datetime="2018-01-23T00:00:00-05:00">
+  <header>
+    <h2 id="article-header" class="entry-title">Building a TTF to UFO Converter with Argparse</h2>
+  </header>
+  <footer class="post-info">
+    <time class="published-post" datetime="2018-01-23">
       January 23, 2018
     </time>
   </footer>
   <div class="article-content">
-    <p>If you have used command line software before you are probably familiar with flags, for example <code>--help</code> for help or <code>-v</code> for version. In this tutorial, I will demonstrate using the module <strong>argparse</strong> to add flags to a Python script.</p>
-<p>The script will convert a TTF font file to a <a class="reference external" href="https://github.com/unified-font-object">UFO</a> directory, UFO is an XML based format used for uncompiled fonts. To start, open a terminal and navigate to a directory where you want to work. To keep dependencies contained, make a virtual environment by entering the following commands:</p>
-<div class="highlight"><pre><span></span>👉 python3 -m venv ttf2ufo
-👉 cd ttf2ufo
-👉 source bin/activate
-👉 mkdir working
-👉 cd working
-</pre></div>
-<p>Runnging <code>source bin/activate</code> activates the virtual environment, to deactivate simply enter <code>deactivate</code>. Now that we are in the <code>venv</code> we need to install the packages needed for the script, <strong>argparse</strong>, <strong>defcon</strong> and, <strong>ufo-extractor</strong>:</p>
-<div class="line-block">
-<div class="line"><a class="reference external" href="https://pypi.python.org/pypi/ufo-extractor">ufo-extractor</a>: Extracts UFO files from defcon font objects.</div>
-<div class="line"><a class="reference external" href="https://pypi.python.org/pypi/defcon/0.3.5">defcon</a>: Creates a Python object from a given TTF.</div>
-<div class="line"><a class="reference external" href="https://pypi.python.org/pypi/argparse/1.4.0">argparse</a>: Command line interface tool, gets input and output location.</div>
-</div>
-<p>Install these dependencies with <strong>pip</strong>:</p>
-<div class="highlight"><pre><span></span>👉 pip install --upgrade ufo-extractor defcon argparse
-</pre></div>
-<p>Now we have everything installed and are ready to write the script, in the <code>ttf2ufo/working/</code> directory, make a new Python file and open it with a text editor(Nano, emacs, etc...):</p>
-<div class="highlight"><pre><span></span>👉 touch ttf-to-ufo.py
-👉 emacs ttf-to-ufo.py
-</pre></div>
-<p>Now start the script by importing <code>argparse</code>, make a new <strong>argparse</strong> object called parser and call <code>parser.parse_args()</code>.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    <p>If you have used command line software before you are probably familiar with flags, for example <code>--help</code> for help or <code>-v</code> for version. In this tutorial, I will demonstrate using the module <strong>Argparse</strong> to add flags to a Python script.</p>
+    <p>The script will convert a TTF font file to a <a class="reference external" href="https://github.com/unified-font-object">UFO</a> directory, UFO is an XML based format used for uncompiled fonts. To start, open a terminal and navigate to a directory where you want to work. To keep dependencies contained, make a virtual environment by entering the following commands:</p>
+    <div class="highlight"><pre><span></span>python3 -m venv ttf2ufo
+      source ttf2ufo/bin/activate
+      mkdir working
+      cd working
+    </pre></div>
+    <p>Runnging <code>source ttf2ufo/bin/activate</code> activates the virtual environment, to deactivate just type <code>deactivate</code>. Now that we are in the <code>venv</code> we need to install the packages needed for the script, <strong>argparse</strong>, <strong>defcon</strong> and, <strong>ufo-extractor</strong>:</p>
+    <div class="line-block">
+      <div class="line"><a class="reference external" href="https://pypi.python.org/pypi/ufo-extractor">ufo-extractor</a>: Extracts UFO files from defcon font objects.</div>
+      <div class="line"><a class="reference external" href="https://pypi.python.org/pypi/defcon/0.3.5">defcon</a>: Creates a Python object from a given TTF.</div>
+      <div class="line"><a class="reference external" href="https://pypi.python.org/pypi/argparse/1.4.0">argparse</a>: Command line interface tool, gets input and output location.</div>
+    </div>
+    <p>Install these dependencies with <strong>pip</strong>:</p>
+    <div class="highlight"><pre><span></span>pip install --upgrade ufo-extractor defcon argparse
+    </pre></div>
+    <p>Now we have everything installed and are ready to write the script, in the <code>ttf2ufo/working/</code> directory, make a new Python file and open it with a text editor(Nano, emacs, etc...):</p>
+    <div class="highlight"><pre><span></span>touch ttf-to-ufo.py
+    vi ttf-to-ufo.py
+    </pre></div>
+    <p>Now start the script by importing <code>argparse</code>, make a new <strong>argparse</strong> object called parser and call <code>parser.parse_args()</code>.</p>
+    <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-</pre></div>
-<p>Save the script an run it from the command line:</p>
-<div class="highlight"><pre><span></span>👉 python3 ttf-to-ufo.py
-</pre></div>
-<p>Nothing happens... try running it with a <code>--help</code> flag:</p>
-<div class="highlight"><pre><span></span>👉 python3 ttf-to-ufo.py --help
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    </pre></div>
+    <p>Save the script an run it from the command line:</p>
+    <div class="highlight"><pre><span></span>python3 ttf-to-ufo.py
+    </pre></div>
+    <p>Nothing happens... try running it with a <code>--help</code> flag:</p>
+    <div class="highlight"><pre><span></span>python3 ttf-to-ufo.py --help
 
-usage: test.py [-h]
+    usage: test.py [-h]
 
-optional arguments:
--h, --help  show this help message and exit
-</pre></div>
-<p>It works, great. Help is the only built-in flag that works without additional code, so let’s add <code>-i</code> for input path and <code>-o</code> for output path:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+    optional arguments:
+    -h, --help  show this help message and exit
+    </pre></div>
+    <p>It works, great. Help is the only built-in flag that works without additional code, so let’s add <code>-i</code> for input path and <code>-o</code> for output path:</p>
+    <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
 <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-i&quot;</span><span class="p">,</span> <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;input file path&quot;</span><span class="p">)</span>
@@ -111,7 +109,7 @@ outputfile: test.ufo
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Done.&#39;</span><span class="p">)</span>
 </pre></div>
 <p>If you run this script with <code>-i</code> and <code>-o</code> a UFO directory should be generated. If you don’t give a full file path for <code>-o</code> and just enter a file name like this <code>test.ufo</code>, a ufo directory will be created in the same directory as the script:</p>
-<div class="highlight"><pre><span></span>👉 python3 ttf-to-ufo.py -i ~/.fonts/test.ttf -o ~/test.ufo
+<div class="highlight"><pre><span></span>python3 ttf-to-ufo.py -i ~/.fonts/test.ttf -o ~/test.ufo
 ttf_path:  /home/eli/.fonts/test.ttf
 ufo_path: /home/eli/test.ufo
 Generating UFO... /home/eli/test.ufo
