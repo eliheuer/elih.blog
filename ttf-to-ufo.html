@@ -9,7 +9,7 @@
 <div class="wrapper" >
 <div class="header" >
 <h1>
-<a href="url">Eli Heuer’s Programming Blog</a>
+<a href="https://elih.blog">Eli Heuer’s Programming Blog</a>
 </h1>
 </div>
 <div class="content">
@@ -22,13 +22,10 @@
 <div class="article-content">
 <p>If you have used command line software before you are probably familiar with flags, for example <code>--help</code> for help or <code>-v</code> for version. In this tutorial, I will demonstrate using the module <strong>Argparse</strong> to add flags to a Python script.</p>
 <p>The script will convert a TTF font file to a <a class="reference external" href="https://github.com/unified-font-object">UFO</a> directory, UFO is an XML based format used for uncompiled fonts. To start, open a terminal and navigate to a directory where you want to work. To keep dependencies contained, make a virtual environment by entering the following commands:</p>
-<div class="highlight"><pre><span></span>
-python3 -m venv ttf2ufo
-source ttf2ufo/bin/activate
-mkdir working
-cd working
+<div class="highlight"><pre>python3 -m venv venv
+source venv/bin/activate
 </pre></div>
-<p>Runnging <code>source ttf2ufo/bin/activate</code> activates the virtual environment, to deactivate just type <code>deactivate</code>. Now that we are in the <code>venv</code> we need to install the packages needed for the script, <strong>argparse</strong>, <strong>defcon</strong> and, <strong>ufo-extractor</strong>:</p>
+<p>Runnging <code>source venv/bin/activate</code> activates the virtual environment, to deactivate just type <code>deactivate</code>. Now that we are in the <code>venv</code> we need to install the packages needed for the script, <strong>argparse</strong>, <strong>defcon</strong> and, <strong>ufo-extractor</strong>:</p>
 <div class="line-block">
 <div class="line"><a class="reference external" href="https://pypi.python.org/pypi/ufo-extractor">ufo-extractor</a>: Extracts UFO files from defcon font objects.</div>
 <div class="line"><a class="reference external" href="https://pypi.python.org/pypi/defcon/0.3.5">defcon</a>: Creates a Python object from a given TTF.</div>
