@@ -34,7 +34,7 @@ source venv/bin/activate
 <p>Install these dependencies with <strong>pip</strong>:</p>
 <div class="highlight"><pre><span></span>pip install --upgrade ufo-extractor defcon argparse
 </pre></div>
-<p>Now we have everything installed and are ready to write the script, in the <code>ttf2ufo/working/</code> directory, make a new Python file and open it with a text editor(Nano, emacs, etc...):</p>
+<p>Now we have everything installed and are ready to write the script, in any directory, make a new Python file and open it with a text editor (I'm using Vim here):</p>
 <div class="highlight"><pre><span></span>touch ttf-to-ufo.py
 vi ttf-to-ufo.py
 </pre></div>
@@ -67,7 +67,7 @@ optional arguments:
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;outputfile:&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">o</span><span class="p">)</span>
 </pre></div>
 <p>Now if we run the script with a help flag again, we should get something like this:</p>
-<div class="highlight"><pre><span></span>👉 python3 ttf-to-ufo.py --help
+<div class="highlight"><pre><span></span>python3 ttf-to-ufo.py --help
 
 usage: test.py [-h] [-i I] [-o O]
 
@@ -77,7 +77,7 @@ optional arguments:
 -o O        output file path
 </pre></div>
 <p>Next, let’s try using the flags, replace <code>~/.fonts/test.ttf</code> with the path to a TTF you want to use:</p>
-<div class="highlight"><pre><span></span>👉 python3 ttf-to-ufo.py -i ~/.fonts/test.ttf -o test.ufo
+<div class="highlight"><pre><span></span>python3 ttf-to-ufo.py -i ~/.fonts/test.ttf -o test.ufo
 inputfile: /home/user/.fonts/test.ttf
 outputfile: test.ufo
 </pre></div>
@@ -113,21 +113,9 @@ ufo_path: /home/eli/test.ufo
 Generating UFO... /home/eli/test.ufo
 Done.
 </pre></div>
-
-  </div>
 </div>
-
-<div class="source-code" id="box">
-  <hr>
-  <h3>Source Code</h3>
-  <p class="site-footer__type">This blog is made with HTML, CSS and Emacs as an editor. All source code is on GitHub <a href="https://github.com/eliheuer/eliheuer.github.io">here</a>.</p>
 </div>
-<div class="licensing" id="box">
-  <hr>
-  <h3>Licensing</h3>
-  <p>Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-ShareAlike 4.0 International
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/">(CC_BY-SA 4.0)</a> license.</p>
-  <p>&copy; 2018</p>
+<p>&copy; 2018 Eli Heuer</p>
 </div>
 </div>
 </body>
