@@ -25,7 +25,11 @@ body{
     margin-top:0
 }
 h1{
+    font-family: 'Fraunces Italic';
     font-variation-settings: 'wght' 900;
+    font-variation-settings: 'opsz' 144;
+    font-variation-settings: 'WONK' 0;
+    font-variation-settings: 'SOFT' 50;
     font-size:3em;
     margin-top:0
 }
