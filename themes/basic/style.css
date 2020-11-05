@@ -8,22 +8,32 @@
     font-weight: bold;
 }
 */
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../../fonts/Fraunces.woff2') format("woff2");
+}
+@font-face {
+    font-family: 'Fraunces Italic';
+    src: url('../../fonts/Fraunces-Italic.woff2') format("woff2");
+}
 body{
-    background-color:#ddd;
+    background-color:#ccc;
     color:#000;
-    font-family: serif;
+    font-family: 'Fraunces';
     font-size:1.5em;
-    display:block
+    display:block;
+    margin-top:0
 }
 h1{
     font-variation-settings: 'wght' 900;
     font-size:3em;
-    letter-spacing:-0.04em;
     margin-top:0
 }
 h2{
     font-size:2em;
-    letter-spacing:-0.02em
+    letter-spacing:-0.02em;
+    margin-top:none;
+    margin-bottom:none
 }
 h3{
     font-size:2em;
@@ -55,10 +65,12 @@ hr{
     padding:0
 }
 .published{
+    font-family: 'Fraunces Italic';
     /*float:right*/
     display:block;
     float:none;
-    margin-bottom:1em
+    /*margin-bottom:1em*/
+    margin-top:none
 }
 @media screen and (max-width: 1050px){
     .published{
@@ -68,6 +80,9 @@ hr{
 }
 ol{
     list-style:none
+}
+ol li {
+    margin-bottom:1em
 }
 ul{
     list-style:none
@@ -80,7 +95,9 @@ ul{
     list-style-type: none;
 }
 .post-list a:link{
-    border-bottom-style:none
+    text-decoration: none;
+    border-bottom-style:none;
+    margin-bottom:none
 }
 .post-info{
     margin-bottom:1.5em
