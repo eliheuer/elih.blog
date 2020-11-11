@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../../fonts/Fraunces.woff2') format("woff2");
+}
+@font-face {
+    font-family: 'Fraunces Italic';
+    src: url('../../fonts/Fraunces-Italic.woff2') format("woff2");
+}
+body {
+    background-color:#ddd;
+    color:#111;
+    font-size:1em;
+}
+h1, h2 {
+    font-family: 'Fraunces';
+    font-variation-settings: 'wght' 900, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
+    font-size:2.5em;
+    margin: 0;
+}
+h2 {
+    margin-bottom: 1em;
+}
+time {
+    font-family: 'Fraunces Italic';
+    font-variation-settings: 'wght' 900, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
+    font-size:1.5em;
+    margin: 0%;
+}
+a {
+    text-decoration: none; 
+}
+a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+}
+header {
+    display: grid;
+    grid-template-columns: 10% 65% 25%;
+    margin: 0% 25%;
+}
+main {
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 2em 25%;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+header h1 {
+    font-family: 'Fraunces Italic';
+    font-variation-settings: 'wght' 900, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
+    font-size:2.5em;
+    margin:0;
+}
+header p {
+    font-family: 'Fraunces Italic';
+    font-variation-settings: 'wght' 800, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
+    font-size:2.5em;
+    text-align: right;
+    margin:0;
+}
+@media screen and (max-width: 1000px) {
+    header {margin: 0% 2%;}
+    main {margin: 0% 2%;}
+    footer {margin: 0% 2%;}
+}
