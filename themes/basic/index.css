@@ -27,20 +27,21 @@ header h1 {
     margin-top:0.4em;
 }
 header a {
-    font-family: 'Fraunces Italic';
+    font-family: sans-serif;
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
-    font-size:2em;
+    font-size:1em;
     margin:0;
-    margin-top:0.4em;
+    margin-top:1.8em;
 }
 time {
-    font-family: 'Fraunces Italic';
+    font-family: sans-serif;
     font-variation-settings: 'wght' 500, 'opsz' 84, 'WONK' 1, 'SOFT' 100;
-    font-size:1.5em;
+    font-size:1em;
     margin: 0%;
 }
 a {
     text-decoration: none;
+    color:#111;
 }
 a:hover {
     text-decoration: underline;
@@ -57,6 +58,7 @@ main {
     margin: 2em 25%;
 }
 footer {
+    font-family: sans-serif;
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 2em 25%;
@@ -79,7 +81,10 @@ ul {
     h2 {font-size:1.8em;}
     time {font-size:1.3em;}
     header h1 {font-size:1.8em;}
-    header a {font-size:1.8em;}
+    header a {
+        font-size:1em;
+        margin-top:1.6em;
+}
     header {grid-template-columns:  75% 25%;}
     .computer {
         margin-top:-0.1em;
