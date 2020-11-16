@@ -14,17 +14,17 @@ body {
 h2 {
     font-family: 'Fraunces';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
-    font-size:2em;
+    font-size:1.7em;
     margin: 0;
     margin-bottom: 1em;
 }
 header h1 {
     font-family: 'Fraunces Italic';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
-    font-size:2em;
-    margin:0;
+    font-size:1.7em;
+    margin:0em;
     color:#111;
-    margin-top:0.4em;
+    margin-top:0.6em;
 }
 header a {
     font-family: sans-serif;
@@ -41,7 +41,7 @@ time {
 }
 a {
     text-decoration: none;
-    color:#111;
+    color:#5050ff;
 }
 a:hover {
     text-decoration: underline;
@@ -50,18 +50,19 @@ a:hover {
 header {
     display: grid;
     grid-template-columns: 75% 25%;
-    margin: 0% 25%;
+    margin: 1em 25%;
 }
 main {
     display: grid;
     grid-template-columns: 100%;
-    margin: 2em 25%;
+    margin: 0% 25%;
 }
 footer {
     font-family: sans-serif;
     display: grid;
     grid-template-columns: 50% 50%;
-    margin: 2em 25%;
+    gap: 3em;
+    margin: 0% 25%;
 }
 ul {
     padding: 0;
@@ -70,24 +71,21 @@ ul {
 .masthead {
     grid-column:1;
 }
+.copyright {
+    grid-column:1;
+}
 .computer {
     margin-top:0.1em;
+    margin-right:0.4em;
     float:left;
 }
 @media screen and (max-width: 850px) {
-    header {margin: 0% 2%;}
+    header {margin: 1em 2%;}
     main {margin: 0% 2%;}
     footer {margin: 0% 2%;}
-    h2 {font-size:1.8em;}
-    time {font-size:1.3em;}
-    header h1 {font-size:1.8em;}
-    header a {
-        font-size:1em;
-        margin-top:1.6em;
-}
     header {grid-template-columns:  75% 25%;}
     .computer {
-        margin-top:-0.1em;
+        /*margin-top:-0.1em;*/
         /*margin-left:-0.5em;*/
     }
 }
