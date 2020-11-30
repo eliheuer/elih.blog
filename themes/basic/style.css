@@ -11,7 +11,7 @@ body {
 h1 {
     font-family: 'Fraunces';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
-    font-size:4em;
+    font-size:3em;
     margin:0;
     margin-bottom: 0em;
 }
@@ -51,7 +51,7 @@ ul {
 footer {
     Display: grid;
     grid-template-columns: repeat(20, 5%);
-    margin: 4em 25%;
+    margin: 2em 25% 4em 25%;
 }
 .main-header-text {
     color:#000;
@@ -68,12 +68,11 @@ footer {
 }
 .post-index {
     grid-column:1/12;
-    margin-top:4em;
+    margin-top:2em;
 }
 article {
     grid-column:1/14;
-    margin-top:4em;
-
+    margin-top:2em;
 }
 .legal {
     grid-column:1/8;
@@ -93,7 +92,7 @@ article {
         row-gap:1em;
     }
     footer {
-        margin:4em 2%;
+        margin: 2em 1em 4em 1em;
     }
     .masthead {
         grid-column:1/12;
@@ -111,6 +110,7 @@ article {
     }
     .post-index {
         grid-column:1/21;
+        margin-top:1em;
     }
     .legal {
         grid-column:1/14;
