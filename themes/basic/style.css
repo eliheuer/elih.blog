@@ -1,12 +1,19 @@
-mfont-face {
+@font-face {
     font-family: 'Fraunces';
     src: url('../../fonts/Fraunces.woff2') format("woff2");
 }
 body {
     font-family:sans-serif;
     font-size:1em;
-    background-color:#eee;
+    background-color:#d5d5d5;
     color:#000;
+}
+h1 {
+    font-family: 'Fraunces';
+    font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
+    font-size:4em;
+    margin:0;
+    margin-bottom: 0em;
 }
 h2 {
     font-family: 'Fraunces';
@@ -63,6 +70,11 @@ footer {
     grid-column:1/12;
     margin-top:4em;
 }
+article {
+    grid-column:1/14;
+    margin-top:4em;
+
+}
 .legal {
     grid-column:1/8;
 }
@@ -74,7 +86,7 @@ footer {
 }
 @media screen and (max-width: 1300px) {
     main {
-        margin:0% 2%;
+        margin:0% 1em;
     }
     header {
         margin:1em 2%;
@@ -90,7 +102,7 @@ footer {
         grid-column:14/21;
     }
     .post-index {
-        grid-column:1/16;
+        grid-column:1/12;
     }
 }
 @media screen and (max-width: 720px) {
@@ -127,3 +139,66 @@ footer {
         grid-column:1/21;
     }
 }
+.highlight pre{
+    border-radius:6px;
+    font-family:"Inconsolata",monospace;
+    font-size:.9em;
+    line-height:1.3em;
+    margin:1em 0;
+    padding:1em;
+    background:#000;
+    color:#e0e0ee
+}
+.highlight .hll{background-color:#444}
+.highlight .c{color:#666}
+.highlight .err{color:#ff3b30;background-color:#333}
+.highlight .k{color:#ff3b30}
+.highlight .l{color:#9b59b6}
+.highlight .n{color:#e0e0ee}
+.highlight .o{color:#3498db}
+.highlight .p{color:#e0e0ee}
+.highlight .cm{color:#666}
+.highlight .cp{color:#666}
+.highlight .c1{color:#666}
+.highlight .cs{color:#666}
+.highlight .ge{font-style:italic}
+.highlight .gs{font-weight:bold}
+.highlight .kc{color:#ffa000}
+.highlight .kd{color:#ffa000}
+.highlight .kn{color:#f4d03f}
+.highlight .kp{color:#ffa000}
+.highlight .kr{color:#ffa000}
+.highlight .kt{color:#ffa000}
+.highlight .ld{color:#f4d03f}
+.highlight .m{color:#9b59b6}
+.highlight .s{color:#f4d03f}
+.highlight .na{color:#27ae60}
+.highlight .nb{color:#27ae60}
+.highlight .nl{color:#e0e0ee}
+.highlight .nn{color:#e0e0ee}
+.highlight .nx{color:#27ae60}
+.highlight .py{color:#e0e0ee}
+.highlight .nt{color:#f4d03f}
+.highlight .nv{color:#e0e0ee}
+.highlight .ow{color:#f4d03f}
+.highlight .w{color:#e0e0ee}
+.highlight .mf{color:#9b59b6}
+.highlight .mh{color:#9b59b6}
+.highlight .mi{color:#9b59b6}
+.highlight .mo{color:#9b59b6}
+.highlight .sb{color:#f4d03f}
+.highlight .sc{color:#f4d03f}
+.highlight .sd{color:#f4d03f}
+.highlight .s2{color:#f4d03f}
+.highlight .se{color:#9b59b6}
+.highlight .sh{color:#f4d03f}
+.highlight .si{color:#f4d03f}
+.highlight .sx{color:#f4d03f}
+.highlight .sr{color:#f4d03f}
+.highlight .s1{color:#f4d03f}
+.highlight .ss{color:#f4d03f}
+.highlight .bp{color:#e0e0ee}
+.highlight .vc{color:#e0e0ee}
+.highlight .vg{color:#e0e0ee}
+.highlight .vi{color:#e0e0ee}
+.highlight .il{color:#9b59b6}
