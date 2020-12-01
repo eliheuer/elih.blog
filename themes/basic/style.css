@@ -12,6 +12,7 @@ h1 {
     font-family: 'Fraunces';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
     font-size:3em;
+    line-height:1em;
     margin:0;
     margin-bottom: 0em;
 }
@@ -19,6 +20,7 @@ h2 {
     font-family: 'Fraunces';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
     font-size:2em;
+    line-height:1.2em;
     margin: 0;
     margin-bottom: 1em;
 }
@@ -34,7 +36,7 @@ a:hover {
     text-decoration-thickness:0.15em;
 }
 img {
-    margin:1em 0 0 0;
+    margin:1em 0 2em 0;
     width:100%;
 }
 hr {
