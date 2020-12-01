@@ -61,7 +61,7 @@ ul {
 footer {
     Display: grid;
     grid-template-columns: repeat(20, 5%);
-    margin: 6em 25% 4em 25%;
+    margin: 12em 25% 4em 25%;
 }
 article {
     grid-column:1/16;
@@ -93,28 +93,49 @@ article {
 .contact {
     grid-column:17/21;
 }
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1600px) {
     main {
-        margin:0% 1em;
+        margin:0em 10em;
     }
     header {
-        margin:1em 2%;
+        margin:1em 10em;
         row-gap:1em;
     }
     footer {
-        margin: 2em 1em 4em 1em;
+        margin: 12em 10em 4em 10em;
     }
     .masthead {
         grid-column:1/12;
     }
     .main-nav {
-        grid-column:14/21;
+        grid-column:16/21;
     }
     .post-index {
         grid-column:1/12;
     }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1200px) {
+    main {
+        margin:0em 1em;
+    }
+    header {
+        margin:1em 1em;
+        row-gap:1em;
+    }
+    footer {
+        margin: 12em 1em 4em 1em;
+    }
+    .masthead {
+        grid-column:1/12;
+    }
+    .main-nav {
+        grid-column:16/21;
+    }
+    .post-index {
+        grid-column:1/12;
+    }
+}
+@media screen and (max-width: 1000px) {
     article {
         grid-column:1/21;
         margin-top:1em;
@@ -141,7 +162,7 @@ article {
 }
 @media screen and (max-width: 600px) {
     .main-nav {
-        grid-column:1/14;
+        grid-column:1/13;
     }
     .legal {
         grid-column:1/21;
