@@ -33,6 +33,13 @@ a:hover {
     text-decoration:underline;
     text-decoration-thickness:0.15em;
 }
+img {
+    margin:1em 0 0 0;
+    width:100%;
+}
+hr {
+    height:2px
+}
 header {
     display: grid;
     grid-template-columns: repeat(20, 5%);
@@ -149,7 +156,7 @@ article {
 .highlight pre{
     border-radius:6px;
     font-family:"Inconsolata",monospace;
-    font-size:1.3em;
+    font-size:1em;
     line-height:1.3em;
     margin:1em 0;
     padding:1em;

@@ -1,57 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Eli Heuer’s Blog</title>
-  <meta charset="utf-8" />
-  <meta name=viewport content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
-</head>
-<div class="wrapper" >
-<div class="header" >
-    <h1>Eli Heue<span class="headline_kern">r’s</span> Blog</h1>
-</div>
-<div class="content">
+  <head>
+    <title>Tk Calligraphy</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Eli Heuer’s Blog"/>
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./themes/basic/style.css">
+  </head>
+  <body>
     <header>
-        <hr>
-        <h2 id="article-header" class="entry-title">Tk Calligraphy: Work Log</h2>
+      <div class="masthead">
+        🌎 <a class="main-header-text" href="https://elih.blog">Eli Heuer’s Blog</a>
+      </div>
+      <nav class="main-nav">
+        <a href="./about">😀 About</a>
+        <a href="./projects">🗄️  Projects</a>
+        <a href="./tags">📂 Tags</a>
+      </nav>
     </header>
-    <footer class="post-info">
-    <time class="published-post" datetime="2017-03-27T00:00:00-05:00">
-      March 27, 2017
-    </time>
-  </footer>
-  <div class="article-content">
-    <p><a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> is a cross-platform GUI toolkit and part of the Python Standard Library. It comes pre-installed with Python for MacOS and Windows. If you are using a Debian based version of Linux like Ubuntu, it can be installed from the terminal:</p>
+<!-- END HEADER -->
+    <main>
+      <article>
+      <h1>Tk Calligraphy</h1>
+      <p>March 27, 2017</p>
+      <p><a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> is a cross-platform GUI toolkit and part of the Python Standard Library. It comes pre-installed with Python for MacOS and Windows. If you are using a Debian based version of Linux like Ubuntu, it can be installed from the terminal:</p>
 <div class="highlight"><pre><span></span><span class="go">sudo apt-get install python3-tk</span>
 </pre></div>
-<p>A Tkinter hello world program looks like this:</p>
+      <p>A Tkinter hello world program looks like this:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Tkinter</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
 <span class="n">helloWorld</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
 <span class="n">helloWorld</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 <span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
 </pre></div>
-<p>Save the above code sample as <cite>hello-world.py</cite> and from a terminal in the same directory run:</p>
+      <p>Save the above code sample as <cite>hello-world.py</cite> and from a terminal in the same directory run:</p>
 <div class="highlight"><pre><span></span><span class="go">python3 hello-world.py</span>
 </pre></div>
-<p>And just like that, we have a cross-platform desktop application!</p>
-<p>Tkinter is simple, fast, and has pleanty of <a class="reference external" href="https://wiki.python.org/moin/TkInter">documentation</a>. There are other ways to create cross-platform desktop applications with Python, notably <a class="reference external" href="https://riverbankcomputing.com/software/pyqt/intro">Qt</a>, <a class="reference external" href="https://kivy.org/">Kivy</a> and <a class="reference external" href="https://www.wxwidgets.org/">wxWidgets</a>. But all these frameworks add complexity to the project and make it more difficult for other programmers to contribute to. So, I wanted to learn more about Tkinter, and building a simple paint program seemed like a good place to start. I started with refactoring the code from <a class="reference external" href="https://funpython.wordpress.com/2015/11/08/simple-drawing-program-part-1/">this blog post</a>, and after a bit of work I had the beginings of a Calligraphy application.</p>
-<img alt="tk-calligraphy" src="images/tk-calligraphy/tk-calligraphy-screenshot-01.png" />
-<p>The GitHub repo for this project can be found <a class="reference external" href="https://github.com/eliheuer/tk-calligraphy">here</a>. My main goal for Tk Calligraphy is to have brushes designed spcifically for Arabic and Hiragana and to have suport for pressure sensitive drawing tablets.</p>
-  </div>
-</div>
-<div class="source-code" id="box">
-  <hr>
-  <h3>Source Code</h3>
-  <p class="site-footer__type">This blog is made with HTML, CSS and Emacs as an editor. All source code is on GitHub <a href="https://github.com/eliheuer/eliheuer.github.io">here</a>.</p>
-</div>
-<div class="licensing" id="box">
-  <hr>
-  <h3>Licensing</h3>
-  <p>Except where otherwise noted, content on this site is licensed under a Creative Commons Attribution-ShareAlike 4.0 International
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/">(CC_BY-SA 4.0)</a> license.</p>
-  <p>&copy; 2018</p>
-</div>
-</div>
-</body>
+      <p>And just like that, we have a cross-platform desktop application!</p>
+      <p>Tkinter is simple, fast, and has pleanty of <a class="reference external" href="https://wiki.python.org/moin/TkInter">documentation</a>. There are other ways to create cross-platform desktop applications with Python, notably <a class="reference external" href="https://riverbankcomputing.com/software/pyqt/intro">Qt</a>, <a class="reference external" href="https://kivy.org/">Kivy</a> and <a class="reference external" href="https://www.wxwidgets.org/">wxWidgets</a>. But all these frameworks add complexity to the project and make it more difficult for other programmers to contribute to. So, I wanted to learn more about Tkinter, and building a simple paint program seemed like a good place to start. I started with refactoring the code from <a class="reference external" href="https://funpython.wordpress.com/2015/11/08/simple-drawing-program-part-1/">this blog post</a>, and after a bit of work I had the beginings of a Calligraphy application.</p>
+      <img alt="tk-calligraphy" src="images/tk-calligraphy/tk-calligraphy-screenshot-01.png" />
+      </article>
+    </main>
+<!-- END ARTICLE -->
+    <footer>
+      <div class="legal">
+        <h2>Legal</h2>
+        <p>&copy; 2017–2020 Eli Heuer.
+        <p>The text of this blog is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Feel free to quote and adapt freely, as long as you give attribution. All code snippets are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> unless otherwise noted.</p>
+      </div>
+      <div class="social">
+        <h2>Social</h2>
+        <p>This blog's source code is hosted on <a href="https://github.com/eliheuer/elih.blog">GitHub</a>, feel free to leave an issue if you notice any bugs or typos.</p>
+        <ul>
+          <li>Github: <a href="https://github.com/eliheuer">@eliheuer</a></li>
+          <li>Twitter: <a href="https://twitter.com/eliheuer">@eliheuer</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/eli.heuer">@eli.heuer</a></li>
+          <li>Twitch: <a href="https://www.twitch.tv/eli_gtl">@eli_gtl</a></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h2>Contact</h2>
+        <p>Send mail to elih [at] protonmail [dot] com.</p>
+      </div>
+    </footer>
+  </body>
 </html>
