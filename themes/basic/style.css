@@ -5,7 +5,7 @@
 body {
     font-family:sans-serif;
     font-size:1em;
-    background-color:#d5d5d5;
+    background-color:#ddd;
     color:#000;
 }
 h1 {
@@ -29,14 +29,14 @@ p {
 }
 a {
     text-decoration: none;
-    color:#5050ff;
+    color:#2255FF;
 }
 a:hover {
     text-decoration:underline;
     text-decoration-thickness:0.1em;
 }
 img {
-    margin:1em 0 2em 0;
+   margin:1em 0 2em 0;
     width:100%;
 }
 hr {
@@ -82,9 +82,13 @@ article {
     grid-column:1/8;
 }
 .main-nav {
-    display: flex;
-    justify-content:space-between;
-    grid-column:14/21;
+    display: inline;
+    text-align: right;
+    grid-column:10/21;
+}
+.main-nav a {
+    margin-right:0;
+    margin-left:16px;
 }
 .post-index {
     grid-column:1/12;
@@ -174,10 +178,10 @@ article {
         margin: 12em 10em 4em 10em;
     }
     .masthead {
-        grid-column:1/12;
+        grid-column:1/9;
     }
     .main-nav {
-        grid-column:16/21;
+        grid-column:10/21;
     }
     .post-index {
         grid-column:1/12;
@@ -195,16 +199,16 @@ article {
         margin: 12em 1em 4em 1em;
     }
     .masthead {
-        grid-column:1/12;
+        grid-column:1/9;
     }
     .main-nav {
-        grid-column:16/21;
+        grid-column:10/21;
     }
     .post-index {
         grid-column:1/12;
     }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
     article {
         grid-column:1/21;
         margin-top:1em;
@@ -213,29 +217,31 @@ article {
         font-size:2em;
     }
     .main-nav {
-        grid-column:1/9;
+        text-align:left;
+        grid-column:1/21;
+    }
+    .main-nav a {
+        margin-left:0;
+        margin-right:12px;
     }
     .post-index {
         grid-column:1/21;
         margin-top:1em;
     }
     .legal {
-        grid-column:1/14;
+        grid-column:1/12;
         grid-row:1;
     }
     .social {
-        grid-column:1/14;
+        grid-column:1/12;
         grid-row:2;
     }
     .contact {
-        grid-column:1/14;
+        grid-column:1/12;
         grid-row:3;
     }
 }
 @media screen and (max-width: 600px) {
-    .main-nav {
-        grid-column:1/14;
-    }
     .legal {
         grid-column:1/21;
     }
@@ -245,4 +251,4 @@ article {
     .contact {
         grid-column:1/21;
     }
-}
+} 
