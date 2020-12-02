@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Converting Roman to Arabic Numerals with the Rust Standard Library</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Eli Heuer’s Blog"/>
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./themes/basic/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="masthead">
+        🌎 <a class="main-header-text" href="https://elih.blog">Eli Heuer’s Blog</a>
+      </div>
+      <nav class="main-nav">
+        <a href="./about">😀 About</a>
+        <a href="./projects">🗄️  Projects</a>
+        <a href="./tags">📂 Tags</a>
+      </nav>
+    </header>
+<!-- END HEADER -->
+    <main>
+      <article>
+      <h1>Convert from Roman to Hindu-Arabic Numerals with the Rust Standard Library</h1>
+      <p>November 30, 2020</p>
+      <p>As a way to better learn <a href="https://www.rust-lang.org">Rust</a>, I've been challenging myself to write small programs using just the <a href="https://doc.rust-lang.org/std">Rust Standard Library</a>. This is one of those programs. It takes a movie or game title containing a roman numeral as a command-line argument and returns the same title with Hindu-Arabic numerals instead.</p>
+      <P>Below is the completed Rust program.</p>
+<div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">env</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="n">HashMap</span><span class="p">;</span><span class="w"></span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">convert</span>::<span class="n">TryInto</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Check for Roman numerals in command-line arguments</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">args</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">env</span>::<span class="n">args</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">arg_step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">args_to_convert</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">new</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Note: the 0 arg is the command that ran the program, and is skipped</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">arg</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">roman_numeral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">arg</span><span class="p">.</span><span class="n">chars</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">match</span><span class="w"> </span><span class="n">character</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="sc">&#39;I&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39;C&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39;D&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="sc">&#39;M&#39;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">(),</span><span class="w"></span>
+<span class="w">                </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">roman_numeral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">};</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">roman_numeral</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">args_to_convert</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">arg_step</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">};</span><span class="w"></span>
+<span class="w">        </span><span class="n">arg_step</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Setup a key/value map for roman numeral values</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">roman_value</span>: <span class="nc">HashMap</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">        </span><span class="p">[(</span><span class="sc">&#39;I&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="sc">&#39;X&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="sc">&#39;C&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="sc">&#39;D&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">)]</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">cloned</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Convert Roman numerals found in the previous process</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">to_vec</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">index_number</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">args_to_convert</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">arg_number</span>: <span class="kt">usize</span> <span class="o">=</span><span class="w"> </span><span class="n">index_number</span><span class="p">.</span><span class="n">try_into</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">arg_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">title</span><span class="p">[</span><span class="n">arg_number</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">arg_char_vec</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arg_string</span><span class="p">.</span><span class="n">chars</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">char_step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">old_converted_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">new_converted_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">integer_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">roman_char</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">arg_char_vec</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">roman_value</span><span class="p">.</span><span class="n">iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">roman_char</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="n">old_converted_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_converted_number</span><span class="p">;</span><span class="w"></span>
+<span class="w">                    </span><span class="n">new_converted_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">char_step</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">new_converted_number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">old_converted_number</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// Special case for the one-less-than strings like &quot;IX&quot; and &quot;IV&quot;</span>
+<span class="w">                </span><span class="c1">// Note that with the string &quot;IV&quot;, integer_value will be 1</span>
+<span class="w">                </span><span class="c1">// going into the second loop, hence: 5 - (2 * 1) -&gt; 5 - 1 -&gt; 4</span>
+<span class="w">                </span><span class="n">integer_value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">new_converted_number</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">old_converted_number</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// Most conversions steps will use this</span>
+<span class="w">                </span><span class="n">integer_value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">new_converted_number</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="n">char_step</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">integer_value_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integer_value</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">integer_value_string</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">title</span><span class="p">[</span><span class="n">arg_number</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">integer_value_string</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Print the new title</span>
+<span class="w">    </span><span class="n">title</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">joined_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">title</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">joined_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">joined_title</span><span class="p">.</span><span class="n">to_string</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">joined_title</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+        <p> From a UNIX environment, run:</p>
+<div class="highlight"><pre>rustc roman-to-hindu-arabic.rs && ./roman-to-hindu-arabic Final Fantasy VII</pre></div>
+<div class="highlight"><pre>Final Fantasy 7</pre></div>
+      </article>
+    </main>
+<!-- END ARTICLE -->
+    <footer>
+      <div class="legal">
+        <h2>Legal</h2>
+        <p>&copy; 2017–2020 Eli Heuer.
+        <p>The text of this blog is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Feel free to quote and adapt freely, as long as you give attribution. All code snippets are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> unless otherwise noted.</p>
+      </div>
+      <div class="social">
+        <h2>Social</h2>
+        <p>This blog's source code is hosted on <a href="https://github.com/eliheuer/elih.blog">GitHub</a>, feel free to leave an issue if you notice any bugs or typos.</p>
+        <ul>
+          <li>Github: <a href="https://github.com/eliheuer">@eliheuer</a></li>
+          <li>Twitter: <a href="https://twitter.com/eliheuer">@eliheuer</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/eli.heuer">@eli.heuer</a></li>
+          <li>Twitch: <a href="https://www.twitch.tv/eli_gtl">@eli_gtl</a></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h2>Contact</h2>
+        <p>Send mail to elih [at] protonmail [dot] com.</p>
+      </div>
+    </footer>
+  </body>
+</html>

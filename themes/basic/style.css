@@ -102,8 +102,8 @@ article {
 .highlight pre{
     border-radius:6px;
     font-family:"Inconsolata",monospace;
-    font-size:1em;
-    line-height:1.3em;
+    font-size:0.9em;
+    line-height:1.2em;
     margin:1em 0;
     padding:1em;
     background:#000;
@@ -212,10 +212,6 @@ article {
     h1 {
         font-size:2em;
     }
-    .highlight pre {
-        font-size:0.8em;
-        line-height:1em;
-}
     .main-nav {
         grid-column:1/9;
     }
@@ -238,7 +234,7 @@ article {
 }
 @media screen and (max-width: 600px) {
     .main-nav {
-        grid-column:1/13;
+        grid-column:1/14;
     }
     .legal {
         grid-column:1/21;
