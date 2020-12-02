@@ -12,7 +12,7 @@ h1 {
     font-family: 'Fraunces';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
     font-size:3em;
-    line-height:1em;
+    line-height:1.1em;
     margin:0;
     margin-bottom: 0em;
 }
@@ -20,7 +20,7 @@ h2 {
     font-family: 'Fraunces';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
     font-size:2em;
-    line-height:1.2em;
+    line-height:1.1em;
     margin: 0;
     margin-bottom: 1em;
 }
@@ -33,7 +33,7 @@ a {
 }
 a:hover {
     text-decoration:underline;
-    text-decoration-thickness:0.15em;
+    text-decoration-thickness:0.1em;
 }
 img {
     margin:1em 0 2em 0;
