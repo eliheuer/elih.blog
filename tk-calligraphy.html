@@ -23,21 +23,6 @@
       <article>
       <h1>Tk Calligraphy</h1>
       <p>March 27, 2017</p>
-      <p><a class="reference external" href="https://docs.python.org/3/library/tk.html">Tkinter</a> is a cross-platform GUI toolkit and part of the Python Standard Library. It comes pre-installed with Python for MacOS and Windows. If you are using a Debian based version of Linux like Ubuntu, it can be installed from the terminal:</p>
-<div class="highlight"><pre><span></span><span class="go">sudo apt-get install python3-tk</span>
-</pre></div>
-      <p>A Tkinter hello world program looks like this:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Tkinter</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
-<span class="n">helloWorld</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
-<span class="n">helloWorld</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
-<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre></div>
-      <p>Save the above code sample as <cite>hello-world.py</cite> and from a terminal in the same directory run:</p>
-<div class="highlight"><pre><span></span><span class="go">python3 hello-world.py</span>
-</pre></div>
-      <p>And just like that, we have a cross-platform desktop application!</p>
-      <p>Tkinter is simple, fast, and has pleanty of <a class="reference external" href="https://wiki.python.org/moin/TkInter">documentation</a>. There are other ways to create cross-platform desktop applications with Python, notably <a class="reference external" href="https://riverbankcomputing.com/software/pyqt/intro">Qt</a>, <a class="reference external" href="https://kivy.org/">Kivy</a> and <a class="reference external" href="https://www.wxwidgets.org/">wxWidgets</a>. But all these frameworks add complexity to the project and make it more difficult for other programmers to contribute to. So, I wanted to learn more about Tkinter, and building a simple paint program seemed like a good place to start. I started with refactoring the code from <a class="reference external" href="https://funpython.wordpress.com/2015/11/08/simple-drawing-program-part-1/">this blog post</a>, and after a bit of work I had the beginings of a Calligraphy application.</p>
       <img alt="tk-calligraphy" src="images/tk-calligraphy/tk-calligraphy-screenshot-01.png" />
       </article>
     </main>
