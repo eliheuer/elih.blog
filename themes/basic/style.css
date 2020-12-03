@@ -45,12 +45,12 @@ hr {
 header {
     display: grid;
     grid-template-columns: repeat(20, 5%);
-    margin: 1em 25%;
+    margin: 1em 30%;
 }
 main {
     display: grid;
     grid-template-columns: repeat(20, 5%);
-    margin: 0em 25%;
+    margin: 0em 30%;
 }
 article p {
     font-size:1.2em;
@@ -64,13 +64,13 @@ ul {
 footer {
     Display: grid;
     grid-template-columns: repeat(20, 5%);
-    margin: 12em 25% 4em 25%;
+    margin: 12em 30% 4em 30%;
 }
 footer ul {
     line-height:1.4em;
 }
 article {
-    grid-column:1/16;
+    grid-column:1/21;
     margin-top:2em;
 }
 .main-header-text {
@@ -91,7 +91,7 @@ article {
     margin-left:16px;
 }
 .post-index {
-    grid-column:1/12;
+    grid-column:1/21;
     margin-top:2em;
 }
 .legal {
@@ -168,14 +168,14 @@ article {
 .highlight .il{color:#9b59b6}
 @media screen and (max-width: 1600px) {
     main {
-        margin:0em 10em;
+        margin:0em 25%;
     }
     header {
-        margin:1em 10em;
+        margin:1em 25%;
         row-gap:1em;
     }
     footer {
-        margin: 12em 10em 4em 10em;
+        margin: 12em 25% 4em 25%;
     }
     .masthead {
         grid-column:1/9;
@@ -184,7 +184,7 @@ article {
         grid-column:10/21;
     }
     .post-index {
-        grid-column:1/12;
+        grid-column:1/21;
     }
 }
 @media screen and (max-width: 1200px) {
