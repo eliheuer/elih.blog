@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Runebender Light Theme</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Eli Heuer’s Blog"/>
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./themes/basic/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="masthead">
+        🌎 <a class="main-header-text" href="https://elih.blog">Eli Heuer’s Blog</a>
+      </div>
+      <nav class="main-nav">
+        <a href="./about">😀 About</a>
+        <a href="./projects">🗄️  Projects</a>
+        <a href="./tags">📂 Tags</a>
+      </nav>
+    </header>
+<!-- END HEADER -->
+    <main>
+      <article>
+        <h1>My Runebender Light Theme</h1>
+        <p>December 6, 2020</p>
+        <P>I have my own personal light theme for <a href="https://github.com/linebender/runebender">Runebender</a> in a Git branch <a href="https://github.com/eliheuer/runebender/tree/elihs-theme">here</a>. This theme is based on a <a href="https://www.figma.com/community/file/879263916414180785">UI mockup</a> I made in Figma. It was designed for Twitch streaming and making video content, so everything is a bit bigger than it would normally be in most other desktop font editing applications. See the theme in use and build instructions below.</p>
+        <img alt="screenshot of eli's theme" src="images/runebender/elihs-light-theme-screenshot-001.png"/>
+        <p>To use Runebender with this theme, open a UN*X shell (Mac, Linux, Windows(WSL)), and clone my fork:
+        <div class="highlight"><pre>git clone https://github.com/eliheuer/runebender.git</pre></div>
+        <p>Move into the root Runebender directory.</p>
+        <div class="highlight"><pre>cd runebender</pre></div>
+        <p>Use Git to checkout the branch containing my theme.</p>
+        <div class="highlight"><pre>git checkout elihs-theme</pre></div>
+        <p>Run the program.</p>
+        <div class="highlight"><pre>cargo run</pre></div>
+        <p>You can also load a <a href="https://github.com/eliheuer/baby-shark">UFO</a> (<a href="https://unifiedfontobject.org">Unified Font Object</a>) from the command line if you need something to look at.</p>
+        <div class="highlight"><pre>cargo run -- ~/Fonts/repos/baby-shark/sources/baby-shark.ufo</pre></div>
+        <p>If you have any issues, technical questions, or thoughts on this post, please make an issue on this blogs GitHub <a href="https://github.com/eliheuer/elih.blog/issues">issue tracker</a>.</p>
+      </article>
+    </main>
+<!-- END ARTICLE -->
+    <footer>
+      <div class="legal">
+        <h2>Legal</h2>
+        <p>&copy; 2017–2020 Eli Heuer.
+        <p>The text of this blog is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Feel free to quote and adapt freely, as long as you give attribution. All code snippets are licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> unless otherwise noted.</p>
+      </div>
+      <div class="social">
+        <h2>Social</h2>
+        <p>This blog's source code is hosted on <a href="https://github.com/eliheuer/elih.blog">GitHub</a>, feel free to leave an issue if you notice any bugs or typos.</p>
+        <ul>
+          <li>Github: <a href="https://github.com/eliheuer">@eliheuer</a></li>
+          <li>Twitter: <a href="https://twitter.com/eliheuer">@eliheuer</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/eli.heuer">@eli.heuer</a></li>
+          <li>Twitch: <a href="https://www.twitch.tv/eli_gtl">@eli_gtl</a></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h2>Contact</h2>
+        <p>Send mail to elih [at] protonmail [dot] com.</p>
+      </div>
+    </footer>
+  </body>
+</html>

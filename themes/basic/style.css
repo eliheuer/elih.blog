@@ -79,7 +79,7 @@ article {
     a {color:#000;}
 }
 .masthead {
-    grid-column:1/8;
+    grid-column:1/9;
 }
 .main-nav {
     display: inline;
@@ -178,10 +178,10 @@ article {
         margin: 12em 25% 4em 25%;
     }
     .masthead {
-        grid-column:1/9;
+        grid-column:1/10;
     }
     .main-nav {
-        grid-column:10/21;
+        grid-column:11/21;
     }
     .post-index {
         grid-column:1/21;
@@ -199,10 +199,10 @@ article {
         margin: 12em 1em 4em 1em;
     }
     .masthead {
-        grid-column:1/9;
+        grid-column:1/10;
     }
     .main-nav {
-        grid-column:10/21;
+        grid-column:11/21;
     }
     .post-index {
         grid-column:1/12;
