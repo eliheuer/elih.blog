@@ -1,15 +1,15 @@
 @font-face {
-    font-family: 'Fraunces';
-    src: url('../../fonts/Fraunces.woff2') format("woff2");
+    font-family: 'Mekorot';
+    src: url('../../fonts/Mekorot-Regular.woff2') format("woff2");
 }
 body {
-    font-family:sans-serif;
+    font-family:Mekorot;
     font-size:1em;
     background-color:#ddd;
     color:#000;
 }
 h1 {
-    font-family: 'Fraunces';
+    font-family: 'Mekorot';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
     font-size:3em;
     line-height:1.1em;
@@ -17,7 +17,7 @@ h1 {
     margin-bottom: 1em;
 }
 h2 {
-    font-family: 'Fraunces';
+    font-family: 'Mekorot';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
     font-size:2em;
     line-height:1.1em;
