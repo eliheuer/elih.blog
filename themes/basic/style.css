@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Mekorot';
-    src: url('../../fonts/Mekorot-Regular.woff2') format("woff2");
+    font-family: 'Hasubi Mono';
+    src: url('../../fonts/HasubiMono-Regular.woff2') format("woff2");
 }
 body {
     font-family:Mekorot;
@@ -9,7 +9,7 @@ body {
     color:#000;
 }
 h1 {
-    font-family: 'Mekorot';
+    font-family: 'Hasubi Mono';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
     font-size:3em;
     line-height:1.1em;
@@ -17,7 +17,7 @@ h1 {
     margin-bottom: 1em;
 }
 h2 {
-    font-family: 'Mekorot';
+    font-family: 'Hasubi Mono';
     font-variation-settings: 'wght' 700, 'opsz' 100, 'WONK' 100, 'SOFT' 50;
     font-size:2em;
     line-height:1.1em;
@@ -105,7 +105,7 @@ article {
 }
 .highlight pre{
     border-radius:6px;
-    font-family:"Inconsolata",monospace;
+    font-family:"Hasubi Mono",monospace;
     font-size:0.9em;
     line-height:1.2em;
     margin:1em 0;
