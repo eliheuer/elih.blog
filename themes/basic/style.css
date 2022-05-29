@@ -3,7 +3,7 @@
     src: url('../../fonts/HasubiMono-Regular.woff2') format("woff2");
 }
 body {
-    font-family:Mekorot;
+    font-family: 'Hasubi Mono';
     font-size:1em;
     background-color:#ddd;
     color:#000;
