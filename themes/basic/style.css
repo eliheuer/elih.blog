@@ -26,6 +26,10 @@ h2 {
 }
 p {
     line-height:1.4em;
+    font-family: 'Hasubi Mono';
+    font-size:1em;
+    background-color:#ddd;
+    color:#000;
 }
 a {
     text-decoration: none;
