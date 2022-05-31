@@ -84,6 +84,7 @@ article {
 }
 .masthead {
     grid-column:1/9;
+    color:#ddd;
 }
 .main-nav {
     display: inline;
