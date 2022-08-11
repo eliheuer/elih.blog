@@ -40,7 +40,7 @@ a:hover {
     text-decoration-thickness:0.1em;
 }
 img {
-   margin:1em 0 2em 0;
+   margin:0em 0em 0em 0em;
     width:100%;
 }
 hr {
@@ -85,6 +85,13 @@ article {
 .masthead {
     grid-column:1/9;
     color:#ddd;
+}
+.caption {
+    font-size: 0.85em;
+    color: #aaaaaa;
+    /*
+    margin-top: -1.5em;/*
+    padding-top: -2em;*/
 }
 .main-nav {
     display: inline;
