@@ -78,9 +78,9 @@ article {
     margin-top:2em;
 }
 .main-header-text {
-    color:#fff;
+    color:#111;
     /*font-weight:bold;*/
-    a {color:#fff;}
+    a {color:#111;}
 }
 .masthead {
     grid-column:1/9;
