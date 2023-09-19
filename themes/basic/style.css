@@ -5,8 +5,8 @@
 body {
     font-family: 'Hasubi Mono';
     font-size:1em;
-    background-color:#000;
-    color:#ddd;
+    background-color:#ddd;
+    color:#111;
 }
 h1 {
     font-family: 'Hasubi Mono';
@@ -29,7 +29,7 @@ p {
     font-family: 'Hasubi Mono';
     font-size:1em;
     background-color:#000;
-    color:#ddd;
+    color:#111;
 }
 a {
     text-decoration: none;
