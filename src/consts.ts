@@ -1,7 +1,7 @@
 import type { IconMap, SocialLink, Site } from '@/types'
 
 export const SITE: Site = {
-  title: 'Eli Heuer’s Blog', // Donts change this, I want to keep it as is
+  title: 'Eli Heuer\'s Blog',
   description:
     'astro-erudite is a opinionated, unstyled blogging template—built with Astro, Tailwind, and shadcn/ui.',
   href: 'https://astro-erudite.vercel.app',
@@ -13,8 +13,8 @@ export const SITE: Site = {
 
 export const NAV_LINKS: SocialLink[] = [
   {
-    href: '/authors',
-    label: 'authors',
+    href: '/projects',
+    label: 'projects',
   },
   {
     href: '/about',
