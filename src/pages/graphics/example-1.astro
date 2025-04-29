@@ -1,0 +1,110 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import Link from '@/components/Link.astro'
+import { Button } from '@/components/ui/button'
+import { Icon } from 'astro-icon/components'
+
+// This is example data - in the future you'll want to fetch this from a collection
+const graphic = {
+  title: 'Example Graphic 1',
+  description: 'This is an example of a graphic design project with detailed information.',
+  date: new Date('2024-11-14'),
+  image: '/path/to/full-size-image.jpg',
+  tags: ['design', 'illustration', 'digital'],
+  nftLink: 'https://example.com/nft/123',
+  memecoinLink: 'https://example.com/memecoin/xyz',
+  sourceCodeLink: 'https://github.com/username/project'
+}
+---
+
+<Layout>
+  <PageHead slot="head" title={graphic.title} />
+  <Breadcrumbs
+    items={[
+      { href: '/graphics', label: 'Graphics', icon: 'lucide:palette' },
+      { label: graphic.title, icon: 'lucide:image' },
+    ]}
+  />
+
+  <article class="max-w-3xl mx-auto">
+    <h1 class="mb-4 text-4xl font-bold">{graphic.title}</h1>
+    
+    <div class="flex flex-wrap gap-2 mb-6">
+      {graphic.tags.map((tag) => (
+        <span class="bg-muted text-muted-foreground px-2 py-1 rounded-md text-sm">
+          #{tag}
+        </span>
+      ))}
+    </div>
+    
+    <!-- Main image -->
+    <div class="mb-8 bg-muted rounded-lg p-2 flex justify-center">
+      <div class="h-[400px] w-full flex items-center justify-center text-muted-foreground">
+        {/* Replace with actual image once you have it */}
+        <span>Image Placeholder: {graphic.title}</span>
+      </div>
+      {/* 
+      <Image 
+        src={graphic.image}
+        alt={graphic.title}
+        width={800}
+        height={500}
+        class="rounded max-h-[500px] object-contain"
+      />
+      */}
+    </div>
+    
+    <!-- Description -->
+    <div class="prose max-w-none mb-8">
+      <p>{graphic.description}</p>
+      
+      <h2>About This Project</h2>
+      <p>
+        This is where you would add detailed information about your graphic design or computer graphics experiment.
+        You can include information about the tools used, the concept behind it, and any interesting aspects of the creation process.
+      </p>
+      
+      <h2>Build Instructions</h2>
+      <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>
+# Example code or build instructions
+git clone https://github.com/username/project
+cd project
+npm install
+npm run build
+      </code></pre>
+    </div>
+    
+    <!-- Links section -->
+    <div class="flex flex-wrap gap-4 mb-8">
+      {graphic.sourceCodeLink && (
+        <Button asChild variant="outline">
+          <Link href={graphic.sourceCodeLink} external>
+            <Icon name="lucide:github" class="mr-2 h-4 w-4" />
+            Source Code
+          </Link>
+        </Button>
+      )}
+      
+      {graphic.nftLink && (
+        <Button asChild variant="outline">
+          <Link href={graphic.nftLink} external>
+            <Icon name="lucide:hexagon" class="mr-2 h-4 w-4" />
+            View NFT
+          </Link>
+        </Button>
+      )}
+      
+      {graphic.memecoinLink && (
+        <Button asChild variant="outline">
+          <Link href={graphic.memecoinLink} external>
+            <Icon name="lucide:bitcoin" class="mr-2 h-4 w-4" />
+            Memecoin
+          </Link>
+        </Button>
+      )}
+    </div>
+  </article>
+</Layout> 

@@ -1,0 +1,185 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import Link from '@/components/Link.astro'
+
+// In the future, you'll want to create a graphics collection and data fetching function
+// const graphics = await getAllGraphics()
+// For now, we'll use a placeholder array
+const graphics = [
+  // This is just placeholder data - replace with your actual graphics
+  { 
+    id: 'example-1', 
+    title: 'Example Graphic 1',
+    thumbnail: '/path/to/thumbnail1.jpg',
+    slug: '/graphics/example-1'
+  },
+  { 
+    id: 'example-2', 
+    title: 'Example Graphic 2',
+    thumbnail: '/path/to/thumbnail2.jpg',
+    slug: '/graphics/example-2'
+  },
+  { 
+    id: 'generative-art-1', 
+    title: 'Generative Art Study',
+    thumbnail: '/path/to/thumbnail3.jpg',
+    slug: '/graphics/generative-art-1'
+  },
+  { 
+    id: 'web3-logo', 
+    title: 'Web3 Project Logo',
+    thumbnail: '/path/to/thumbnail4.jpg',
+    slug: '/graphics/web3-logo'
+  },
+  { 
+    id: 'fractal-experiment', 
+    title: 'Fractal Experiment',
+    thumbnail: '/path/to/thumbnail5.jpg',
+    slug: '/graphics/fractal-experiment'
+  },
+  { 
+    id: 'nft-collection-1', 
+    title: 'NFT Collection: Genesis',
+    thumbnail: '/path/to/thumbnail6.jpg',
+    slug: '/graphics/nft-collection-1'
+  },
+  { 
+    id: 'shader-study-1', 
+    title: 'GLSL Shader Study',
+    thumbnail: '/path/to/thumbnail7.jpg',
+    slug: '/graphics/shader-study-1'
+  },
+  { 
+    id: 'p5js-sketch', 
+    title: 'p5.js Interactive Sketch',
+    thumbnail: '/path/to/thumbnail8.jpg',
+    slug: '/graphics/p5js-sketch'
+  },
+  { 
+    id: 'threejs-experiment', 
+    title: 'Three.js 3D Experiment',
+    thumbnail: '/path/to/thumbnail9.jpg',
+    slug: '/graphics/threejs-experiment'
+  },
+  { 
+    id: 'memecoin-mascot', 
+    title: 'Memecoin Mascot Design',
+    thumbnail: '/path/to/thumbnail10.jpg',
+    slug: '/graphics/memecoin-mascot'
+  },
+  { 
+    id: 'algorithmic-pattern', 
+    title: 'Algorithmic Pattern',
+    thumbnail: '/path/to/thumbnail11.jpg',
+    slug: '/graphics/algorithmic-pattern'
+  },
+  { 
+    id: 'pixel-art-scene', 
+    title: 'Pixel Art Scene',
+    thumbnail: '/path/to/thumbnail12.jpg',
+    slug: '/graphics/pixel-art-scene'
+  },
+  { 
+    id: 'vector-illustration', 
+    title: 'Vector Illustration',
+    thumbnail: '/path/to/thumbnail13.jpg',
+    slug: '/graphics/vector-illustration'
+  },
+  { 
+    id: 'typography-experiment', 
+    title: 'Typography Experiment',
+    thumbnail: '/path/to/thumbnail14.jpg',
+    slug: '/graphics/typography-experiment'
+  },
+  { 
+    id: 'data-visualization', 
+    title: 'Blockchain Data Visualization',
+    thumbnail: '/path/to/thumbnail15.jpg',
+    slug: '/graphics/data-visualization'
+  },
+  { 
+    id: 'svg-animation', 
+    title: 'SVG Animation Study',
+    thumbnail: '/path/to/thumbnail16.jpg',
+    slug: '/graphics/svg-animation'
+  },
+  { 
+    id: 'game-asset-pack', 
+    title: 'Game Asset Pack',
+    thumbnail: '/path/to/thumbnail17.jpg',
+    slug: '/graphics/game-asset-pack'
+  },
+  { 
+    id: 'procedural-terrain', 
+    title: 'Procedural Terrain Generator',
+    thumbnail: '/path/to/thumbnail18.jpg',
+    slug: '/graphics/procedural-terrain'
+  },
+  { 
+    id: 'webgl-particles', 
+    title: 'WebGL Particle System',
+    thumbnail: '/path/to/thumbnail19.jpg',
+    slug: '/graphics/webgl-particles'
+  },
+  { 
+    id: 'isometric-design', 
+    title: 'Isometric Design',
+    thumbnail: '/path/to/thumbnail20.jpg',
+    slug: '/graphics/isometric-design'
+  },
+  { 
+    id: 'color-study', 
+    title: 'Color Study',
+    thumbnail: '/path/to/thumbnail21.jpg',
+    slug: '/graphics/color-study'
+  },
+  { 
+    id: 'motion-graphics', 
+    title: 'Motion Graphics Demo',
+    thumbnail: '/path/to/thumbnail22.jpg',
+    slug: '/graphics/motion-graphics'
+  }
+]
+---
+
+<Layout>
+  <PageHead slot="head" title="Graphics" />
+  <Breadcrumbs items={[{ label: 'Graphics', icon: 'lucide:palette' }]} />
+
+  <section>
+    <div class="min-w-full">
+      <h1 class="mb-6 text-3xl font-medium">Graphics</h1>
+      <p class="mb-8 text-muted-foreground">
+        A collection of graphic design and computer graphics experiments.
+      </p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {graphics.map((graphic) => (
+          <Link href={graphic.slug} class="group relative overflow-hidden rounded-md bg-muted hover:shadow-md transition-all duration-300">
+            <div class="aspect-square overflow-hidden">
+              {/* Replace with actual image component once you have real data */}
+              <div class="w-full h-full bg-muted flex items-center justify-center text-muted-foreground">
+                {graphic.title}
+              </div>
+              {/* 
+              <Image 
+                src={graphic.thumbnail} 
+                alt={graphic.title}
+                width={300}
+                height={300}
+                class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+              />
+              */}
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 bg-background/80 backdrop-blur-sm p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+              <h3 class="text-sm font-medium truncate">{graphic.title}</h3>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout> 
