@@ -7,7 +7,7 @@ export const SITE: Site = {
   href: 'https://astro-erudite.vercel.app',
   author: 'jktrn',
   locale: 'en-US',
-  featuredPostCount: 2,
+  featuredPostCount: 5,
   postsPerPage: 3,
 }
 

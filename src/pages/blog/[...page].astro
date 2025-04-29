@@ -25,12 +25,14 @@ const years = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a))
 
 <Layout>
   <PageHead slot="head" title="Blog" />
+  <!--
   <Breadcrumbs
     items={[
       { label: 'Blog', href: '/blog', icon: 'lucide:archive' },
       { label: `Page ${page.currentPage}`, icon: 'lucide:folder-open' },
     ]}
   />
+  -->
 
   <div class="flex min-h-[calc(100vh-18rem)] flex-col gap-y-8">
     {
