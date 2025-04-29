@@ -12,7 +12,7 @@ const { prevPost, nextPost } = Astro.props
     href={nextPost ? `/blog/${nextPost.id}` : '#'}
     class={cn(
       buttonVariants({ variant: 'outline' }),
-      'rounded-xl group flex items-center justify-start size-full',
+      'rounded-md group flex items-center justify-start size-full',
       !nextPost && 'pointer-events-none opacity-50 cursor-not-allowed',
     )}
     aria-disabled={!nextPost}
@@ -32,7 +32,7 @@ const { prevPost, nextPost } = Astro.props
     href={prevPost ? `/blog/${prevPost.id}` : '#'}
     class={cn(
       buttonVariants({ variant: 'outline' }),
-      'rounded-xl group flex items-center justify-end size-full',
+      'rounded-md group flex items-center justify-end size-full',
       !prevPost && 'pointer-events-none opacity-50 cursor-not-allowed',
     )}
     aria-disabled={!prevPost}
