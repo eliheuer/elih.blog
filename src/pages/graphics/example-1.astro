@@ -34,14 +34,14 @@ const graphic = {
     
     <div class="flex flex-wrap gap-2 mb-6">
       {graphic.tags.map((tag) => (
-        <span class="bg-muted text-muted-foreground px-2 py-1 rounded-sm text-sm">
+        <span class="bg-muted text-muted-foreground px-2 py-1 rounded-md text-sm">
           #{tag}
         </span>
       ))}
     </div>
     
     <!-- Main image -->
-    <div class="mb-8 bg-muted rounded-md p-2 flex justify-center">
+    <div class="mb-8 bg-muted rounded-lg p-2 flex justify-center">
       <div class="h-[400px] w-full flex items-center justify-center text-muted-foreground">
         {/* Replace with actual image once you have it */}
         <span>Image Placeholder: {graphic.title}</span>
@@ -68,7 +68,7 @@ const graphic = {
       </p>
       
       <h2>Build Instructions</h2>
-      <pre class="bg-muted p-4 rounded-md overflow-x-auto"><code>
+      <pre class="bg-muted p-4 rounded-lg overflow-x-auto"><code>
 # Example code or build instructions
 git clone https://github.com/username/project
 cd project
