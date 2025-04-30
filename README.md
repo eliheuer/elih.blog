@@ -282,3 +282,13 @@ Built with &hearts; by [enscribe](https://enscribe.dev)!
 
 [Stargazers]: https://img.shields.io/github/stars/jktrn/astro-erudite?color=fafafa&logo=github&logoColor=fff&style=for-the-badge
 [License]: https://img.shields.io/github/license/jktrn/astro-erudite?color=0a0a0a&logo=github&logoColor=fff&style=for-the-badge
+
+## GitHub Pages Configuration
+
+To deploy this site on GitHub Pages:
+
+1. Go to the repository settings on GitHub
+2. Navigate to "Pages" in the left sidebar
+3. Under "Build and deployment" section:
+   - Source: Select "GitHub Actions"
+4. The site will be built and deployed automatically when changes are pushed to the main branch
