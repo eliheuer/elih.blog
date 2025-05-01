@@ -4,6 +4,9 @@ export async function getAllPosts(): Promise<CollectionEntry<'blog'>[]> {
   const posts = await getCollection('blog')
   return posts
     .filter((post) => !post.data.draft)
+    // Temporarily filtering to only show the "Diffuse Value Capture" post
+    // TODO: Remove this filter when ready to show all blog posts again
+    .filter((post) => post.id.startsWith('diffuse-value-capture'))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 }
 
