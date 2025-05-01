@@ -4,10 +4,10 @@
 
 @theme inline {
   --font-sans:
-    Geist, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    'Geist', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, 
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono:
-    Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
 
   --color-background: var(--background);
@@ -41,6 +41,7 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  font-feature-settings: "ss03", "salt", "calt";
 }
 
 @font-face {
@@ -49,6 +50,7 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
+  font-feature-settings: "ss03", "ss04", "calt";
 }
 
 :root {
@@ -93,7 +95,12 @@
   }
 
   html {
-    @apply bg-background text-foreground scheme-light;
+    @apply bg-background text-foreground scheme-light text-base;
+    font-size: 20px;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     &.dark {
       @apply scheme-dark;
