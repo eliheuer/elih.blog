@@ -77,9 +77,13 @@ const blog = await getRecentPosts(SITE.featuredPostCount)
       }
     </ul>
     <div class="flex justify-center">
+      <!-- 
+        Previous version: class={buttonVariants({ variant: 'ghost' }) + ' group'}
+        Changed to outline variant to match the styling of other outlined elements on the site while preserving hover effects
+      -->
       <Link
         href="/blog"
-        class={buttonVariants({ variant: 'ghost' }) + ' group'}
+        class={buttonVariants({ variant: 'outline' }) + ' group'}
       >
         See all posts <span
           class="ml-1.5 transition-transform group-hover:translate-x-1"
