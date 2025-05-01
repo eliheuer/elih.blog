@@ -12,6 +12,26 @@ const title = post.data.title || SITE.title
 const description = post.data.description || SITE.description
 const image = new URL('/static/1200x630.png', Astro.site)
 const author = post.data.authors ? post.data.authors.join(', ') : SITE.author
+
+// Ensure image URL is formed correctly for social sharing
+const getImageUrl = () => {
+  if (!post.data.image) return image.href;
+  
+  // For full URLs, use them directly
+  if (post.data.image.toString().startsWith('http')) {
+    return post.data.image;
+  }
+  
+  // For relative paths, resolve them against the site URL
+  const imageUrl = new URL(
+    post.data.image.toString().replace(/^\.\//, ''),
+    new URL(`/content/blog/${post.id}/`, SITE.href)
+  );
+  
+  return imageUrl.toString();
+};
+
+const socialImageUrl = getImageUrl();
 ---
 
 <title>{`${title} | ${SITE.title}`}</title>
@@ -21,16 +41,7 @@ const author = post.data.authors ? post.data.authors.join(', ') : SITE.author
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<!-- Original: Using string concatenation with OR operator which can cause issues with undefined values
-<meta
-  property="og:image"
-  content={`${SITE.href}${post?.data?.image?.src}` || image}
-/>
--->
-<meta
-  property="og:image"
-  content={post?.data?.image ? `${SITE.href}${post.data.image.src}` : image}
-/>
+<meta property="og:image" content={socialImageUrl} />
 <meta property="og:image:alt" content={title} />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content={SITE.locale} />
@@ -40,16 +51,7 @@ const author = post.data.authors ? post.data.authors.join(', ') : SITE.author
 
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<!-- Original: Using string concatenation with OR operator which can cause issues with undefined values
-<meta
-  property="twitter:image"
-  content={`${SITE.href}${post?.data?.image?.src}` || image}
-/>
--->
-<meta
-  property="twitter:image"
-  content={post?.data?.image ? `${SITE.href}${post.data.image.src}` : image}
-/>
+<meta name="twitter:image" content={socialImageUrl} />
 <meta name="twitter:image:alt" content={title} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content={author} />

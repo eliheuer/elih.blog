@@ -4,8 +4,8 @@ export const SITE: Site = {
   title: 'Eli Heuer\'s Blog',
   description:
     'astro-erudite is a opinionated, unstyled blogging template—built with Astro, Tailwind, and shadcn/ui.',
-  href: 'https://astro-erudite.vercel.app',
-  author: 'jktrn',
+  href: 'https://elih.blog',
+  author: 'Eli Heuer',
   locale: 'en-US',
   featuredPostCount: 3,
   postsPerPage: 3,
@@ -32,15 +32,15 @@ export const NAV_LINKS: SocialLink[] = [
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: 'https://github.com/jktrn',
+    href: 'https://github.com/eliheuer',
     label: 'GitHub',
   },
   {
-    href: 'https://twitter.com/enscry',
+    href: 'https://twitter.com/eliheuer',
     label: 'Twitter',
   },
   {
-    href: 'mailto:jason@enscribe.dev',
+    href: 'mailto:elih@protonmail.com',
     label: 'Email',
   },
   {
