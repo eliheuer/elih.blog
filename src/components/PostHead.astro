@@ -21,9 +21,15 @@ const author = post.data.authors ? post.data.authors.join(', ') : SITE.author
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+<!-- Original: Using string concatenation with OR operator which can cause issues with undefined values
 <meta
   property="og:image"
   content={`${SITE.href}${post?.data?.image?.src}` || image}
+/>
+-->
+<meta
+  property="og:image"
+  content={post?.data?.image ? `${SITE.href}${post.data.image.src}` : image}
 />
 <meta property="og:image:alt" content={title} />
 <meta property="og:type" content="website" />
@@ -34,9 +40,15 @@ const author = post.data.authors ? post.data.authors.join(', ') : SITE.author
 
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
+<!-- Original: Using string concatenation with OR operator which can cause issues with undefined values
 <meta
   property="twitter:image"
   content={`${SITE.href}${post?.data?.image?.src}` || image}
+/>
+-->
+<meta
+  property="twitter:image"
+  content={post?.data?.image ? `${SITE.href}${post.data.image.src}` : image}
 />
 <meta name="twitter:image:alt" content={title} />
 <meta name="twitter:card" content="summary_large_image" />
