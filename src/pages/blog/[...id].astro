@@ -2,7 +2,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import Link from '@/components/Link.astro'
 import PostHead from '@/components/PostHead.astro'
-import PostNavigation from '@/components/PostNavigation.astro'
+// import PostNavigation from '@/components/PostNavigation.astro'
 import TableOfContents from '@/components/TableOfContents.astro'
 import { badgeVariants } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -142,7 +142,9 @@ const authors = await parseAuthors(post.data.authors ?? [])
       <Content />
     </article>
 
+    <!--
     <PostNavigation prevPost={prev} nextPost={next} />
+    -->
   </section>
 
   <Button
