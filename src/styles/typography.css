@@ -2,7 +2,7 @@
 
 @layer components {
   .prose {
-    @apply text-foreground text-xl leading-relaxed;
+    @apply text-foreground text-lg leading-normal;
 
     p {
       @apply text-foreground/90 my-6 not-first:mt-6;
@@ -66,7 +66,7 @@
     }
 
     blockquote {
-      @apply [&_*]:text-muted-foreground text-lg my-8 border-l-2 pl-6;
+      @apply [&_*]:text-muted-foreground my-8 border-l-2 pl-6;
     }
 
     hr {
