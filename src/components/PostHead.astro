@@ -17,14 +17,22 @@ const author = post.data.authors ? post.data.authors.join(', ') : SITE.author
 const getImageUrl = () => {
   if (!post.data.image) return image.href;
   
+  // Check if the image is an object with src property (from Astro image integration)
+  if (typeof post.data.image === 'object' && 'src' in post.data.image) {
+    return new URL(post.data.image.src, Astro.site).toString();
+  }
+  
+  // For string URLs
+  const imageStr = String(post.data.image);
+  
   // For full URLs, use them directly
-  if (post.data.image.toString().startsWith('http')) {
-    return post.data.image;
+  if (imageStr.startsWith('http')) {
+    return imageStr;
   }
   
   // For relative paths, resolve them against the site URL
   const imageUrl = new URL(
-    post.data.image.toString().replace(/^\.\//, ''),
+    imageStr.replace(/^\.\//, ''),
     new URL(`/content/blog/${post.id}/`, SITE.href)
   );
   
