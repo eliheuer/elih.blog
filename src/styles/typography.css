@@ -5,7 +5,7 @@
     @apply text-foreground text-lg leading-normal;
 
     p {
-      @apply text-foreground/90 my-6 not-first:mt-6;
+      @apply text-foreground/90 my-6 tracking-wide not-first:mt-6;
     }
 
     h1 {
