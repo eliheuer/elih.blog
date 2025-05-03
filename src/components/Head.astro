@@ -43,6 +43,15 @@ import Favicons from './Favicons.astro'
     href={new URL('rss.xml', Astro.site)}
   />
 
+  <!-- Preload fonts -->
+  <link
+    rel="preload"
+    href="/fonts/BezyGrotesk-Regular.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+  />
+
   <Favicons />
   <ClientRouter />
 

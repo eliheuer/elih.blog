@@ -1,0 +1,118 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import PageHead from '@/components/PageHead.astro'
+import { Button } from '@/components/ui/button'
+---
+
+<style is:global>
+  .geist-test {
+    font-family: 'Geist', sans-serif !important;
+  }
+  
+  .bezy-test {
+    font-family: 'Bezy Grotesk', sans-serif !important;
+  }
+</style>
+
+<Layout>
+  <PageHead slot="head" title="Font Test" />
+
+  <div class="space-y-8">
+    <h1 class="text-4xl font-bold">Font Test Page</h1>
+    
+    <div class="space-y-4">
+      <p class="text-2xl">This text should change fonts when switching between Geist and Bezy Grotesk.</p>
+      
+      <div class="flex items-center gap-4">
+        <Button id="use-geist-btn">Use Geist Font</Button>
+        <Button id="use-bezy-btn">Use Bezy Grotesk Font</Button>
+      </div>
+      
+      <div class="p-4 border rounded-md">
+        <p class="font-normal">The quick brown fox jumps over the lazy dog.</p>
+        <p class="font-medium">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+        <p class="font-semibold">abcdefghijklmnopqrstuvwxyz</p>
+        <p class="font-bold">0123456789</p>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <h3 class="text-xl font-medium mb-2">Current Font Classes:</h3>
+          <pre id="font-classes" class="p-2 bg-muted rounded-md text-sm"></pre>
+        </div>
+        <div>
+          <h3 class="text-xl font-medium mb-2">Computed Font Family:</h3>
+          <pre id="computed-font" class="p-2 bg-muted rounded-md text-sm"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-4 mt-8">
+      <h2 class="text-2xl font-bold">Direct Font Testing</h2>
+      
+      <div class="grid grid-cols-2 gap-4">
+        <div class="p-4 border rounded-md">
+          <h3 class="text-xl font-medium mb-2">Geist Font Direct Test</h3>
+          <p class="geist-test">The quick brown fox jumps over the lazy dog.</p>
+          <p class="geist-test font-bold">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+        </div>
+        
+        <div class="p-4 border rounded-md">
+          <h3 class="text-xl font-medium mb-2">Bezy Grotesk Font Direct Test</h3>
+          <p class="bezy-test">The quick brown fox jumps over the lazy dog.</p>
+          <p class="bezy-test font-bold">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Update the display of current font classes and computed style
+    function updateFontInfo() {
+      const html = document.documentElement;
+      const fontClassesEl = document.getElementById('font-classes');
+      const computedFontEl = document.getElementById('computed-font');
+      
+      // Display the current classes on the html element
+      if (fontClassesEl) {
+        const classList = Array.from(html.classList).join('\n');
+        fontClassesEl.textContent = classList || 'No classes';
+      }
+      
+      // Display the computed font-family
+      if (computedFontEl) {
+        const computedStyle = window.getComputedStyle(document.body);
+        computedFontEl.textContent = computedStyle.fontFamily;
+      }
+    }
+    
+    // Initialize the buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      const geistBtn = document.getElementById('use-geist-btn');
+      const bezyBtn = document.getElementById('use-bezy-btn');
+      
+      if (geistBtn) {
+        geistBtn.addEventListener('click', () => {
+          const html = document.documentElement;
+          html.classList.remove('use-bezy-font');
+          html.classList.add('use-geist-font');
+          localStorage.setItem('font', 'geist');
+          updateFontInfo();
+        });
+      }
+      
+      if (bezyBtn) {
+        bezyBtn.addEventListener('click', () => {
+          const html = document.documentElement;
+          html.classList.remove('use-geist-font');
+          html.classList.add('use-bezy-font');
+          localStorage.setItem('font', 'bezy');
+          updateFontInfo();
+        });
+      }
+      
+      // Initial update
+      updateFontInfo();
+    });
+  </script>
+</Layout> 

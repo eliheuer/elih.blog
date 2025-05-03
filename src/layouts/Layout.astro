@@ -9,12 +9,43 @@ import { SITE } from '@/consts'
 import { cn } from '@/lib/utils'
 
 const { isWide = false } = Astro.props
+const defaultFont = 'bezy'
 ---
 
 <!doctype html>
-<html lang={SITE.locale}>
+<html lang={SITE.locale} class={defaultFont === 'bezy' ? 'use-bezy-font' : 'use-geist-font'}>
   <Head>
     <slot name="head" />
+    <style is:inline>
+      @font-face {
+        font-family: 'Bezy Grotesk';
+        src: url('/fonts/BezyGrotesk-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      
+      html.use-bezy-font {
+        font-family: 'Bezy Grotesk', sans-serif !important;
+      }
+      
+      html.use-bezy-font body {
+        font-family: 'Bezy Grotesk', sans-serif !important;
+      }
+      
+      html.use-geist-font {
+        font-family: 'Geist', sans-serif !important;
+      }
+      
+      html.use-geist-font body {
+        font-family: 'Geist', sans-serif !important;
+      }
+      
+      /* Set initial font style */
+      body {
+        font-family: 'Bezy Grotesk', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif !important;
+      }
+    </style>
   </Head>
   <body>
     <div class="flex h-fit min-h-screen flex-col gap-y-6 font-sans">
@@ -31,5 +62,36 @@ const { isWide = false } = Astro.props
       </main>
       <Footer />
     </div>
+    
+    <script is:inline define:vars={{ defaultFont: 'bezy' }}>
+      // Ensure the font preference is applied on page load
+      (function() {
+        try {
+          // First try to set from localStorage if it exists
+          const storedFont = localStorage.getItem('font');
+          const font = storedFont || defaultFont;
+          
+          const html = document.documentElement;
+          if (font === 'bezy') {
+            html.classList.add('use-bezy-font');
+            html.classList.remove('use-geist-font');
+            document.body.style.fontFamily = "'Bezy Grotesk', sans-serif";
+          } else {
+            html.classList.add('use-geist-font');
+            html.classList.remove('use-bezy-font');
+            document.body.style.fontFamily = "'Geist', sans-serif";
+          }
+          
+          // Always save the preference
+          if (!storedFont) {
+            localStorage.setItem('font', defaultFont);
+          }
+        } catch (e) {
+          // If localStorage fails, still set the default font
+          document.documentElement.classList.add('use-bezy-font');
+          document.body.style.fontFamily = "'Bezy Grotesk', sans-serif";
+        }
+      })();
+    </script>
   </body>
 </html>

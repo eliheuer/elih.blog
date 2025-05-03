@@ -1,11 +1,17 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant use-bezy-font (&:is(.use-bezy-font *), &.use-bezy-font);
+@custom-variant use-geist-font (&:is(.use-geist-font *), &.use-geist-font);
 
 @theme inline {
-  --font-sans:
+  --font-sans-geist:
     'Geist', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, 
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans-bezy:
+    'Bezy Grotesk', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, 
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: var(--font-sans-bezy);
   --font-mono:
     'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
@@ -42,6 +48,14 @@
   font-style: normal;
   font-display: swap;
   font-feature-settings: "ss03", "salt", "calt";
+}
+
+@font-face {
+  font-family: 'Bezy Grotesk';
+  src: url('/fonts/BezyGrotesk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -85,6 +99,25 @@
   --ring: oklch(0.556 0 0);
 }
 
+/* Font toggling classes */
+html.use-bezy-font {
+  --font-sans: var(--font-sans-bezy);
+  font-family: 'Bezy Grotesk', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
+}
+
+html.use-bezy-font * {
+  font-family: 'Bezy Grotesk', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif !important;
+}
+
+html.use-geist-font {
+  --font-sans: var(--font-sans-geist);
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
+}
+
+html.use-geist-font * {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif !important;
+}
+
 @layer base {
   *,
   ::after,
@@ -101,6 +134,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: 'Bezy Grotesk', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
 
     &.dark {
       @apply scheme-dark;
@@ -109,6 +143,10 @@
     ::-webkit-scrollbar-corner {
       @apply bg-transparent;
     }
+  }
+
+  body {
+    font-family: 'Bezy Grotesk', -apple-system, BlinkMacSystemFont, ui-sans-serif, system-ui, sans-serif;
   }
 
   .disable-transitions * {

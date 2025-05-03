@@ -1,0 +1,102 @@
+---
+import { Button } from '@/components/ui/button'
+import { Icon } from 'astro-icon/components'
+
+const defaultFont = 'bezy'
+---
+
+<Button id="font-toggle" variant="outline" size="icon" title="Toggle font">
+  <Icon
+    name="lucide:file-type-2"
+    class="size-4 scale-100 rotate-0 transition-all use-bezy-font:scale-0 use-bezy-font:-rotate-90"
+  />
+  <Icon
+    name="lucide:file-type"
+    class="absolute size-4 scale-0 rotate-90 transition-all use-bezy-font:scale-100 use-bezy-font:rotate-0"
+  />
+  <span class="sr-only">Toggle font</span>
+</Button>
+
+<script is:inline define:vars={{ defaultFont }}>
+  (function() {
+    // Initialize the font preference
+    try {
+      const storedFont = localStorage.getItem('font');
+      const font = storedFont || defaultFont;
+      const html = document.documentElement;
+      
+      // Update the toggle button appearance via classes
+      if (font === 'bezy') {
+        html.classList.add('use-bezy-font');
+        html.classList.remove('use-geist-font');
+      } else {
+        html.classList.add('use-geist-font');
+        html.classList.remove('use-bezy-font');
+      }
+      
+      // Save the default if not already set
+      if (!storedFont) {
+        localStorage.setItem('font', defaultFont);
+      }
+    } catch (e) {
+      // Fail gracefully
+      document.documentElement.classList.add('use-bezy-font');
+    }
+  })();
+  
+  // Add event listener to the toggle button after the DOM has loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    initFontToggle();
+  });
+  
+  // Initialize the font toggle
+  function initFontToggle() {
+    const fontToggle = document.getElementById('font-toggle');
+    if (fontToggle) {
+      fontToggle.addEventListener('click', handleFontToggleClick);
+    }
+  }
+  
+  // Handle toggle click
+  function handleFontToggleClick() {
+    const html = document.documentElement;
+    
+    // Add the disable-transitions class to prevent flickering
+    html.classList.add('disable-transitions');
+    
+    // Toggle the font class
+    const isBezy = html.classList.contains('use-bezy-font');
+    if (isBezy) {
+      html.classList.remove('use-bezy-font');
+      html.classList.add('use-geist-font');
+      localStorage.setItem('font', 'geist');
+    } else {
+      html.classList.remove('use-geist-font');
+      html.classList.add('use-bezy-font');
+      localStorage.setItem('font', 'bezy');
+    }
+    
+    // Force a repaint to ensure the transition is applied properly
+    void html.offsetWidth;
+    
+    // Apply font directly to ensure the change is visible
+    if (html.classList.contains('use-bezy-font')) {
+      document.body.style.fontFamily = "'Bezy Grotesk', sans-serif";
+    } else {
+      document.body.style.fontFamily = "'Geist', sans-serif";
+    }
+    
+    // Remove the disable-transitions class after a short delay
+    setTimeout(() => {
+      html.classList.remove('disable-transitions');
+    }, 0);
+    
+    // Force page refresh to ensure font is applied
+    window.location.reload();
+  }
+  
+  // Initialize the toggle button when the page is loaded via View Transitions
+  document.addEventListener('astro:after-swap', () => {
+    initFontToggle();
+  });
+</script> 
