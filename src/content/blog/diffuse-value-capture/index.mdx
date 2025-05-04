@@ -1,11 +1,14 @@
 ---
 title: 'Diffuse Value Capture'
 description: 'Incentivizing post-authorship commons-based peer production.'
-date: 2025-05-03
+date: 2025-05-01
 tags: ['crypto', 'AI', 'open-source', 'IP']
 image: './1200x630.png'
-authors: ['enscribe']
+authors: ['elih']
 ---
+import { Image } from 'astro:assets'
+import YouStoleMyIdeaImage from './you-stole-my-idea.png'
+
 # Diffuse Value Capture
 
 <span class="text-muted-foreground">May 1st, 2025</span>
@@ -16,19 +19,37 @@ authors: ['enscribe']
 <p>—Charlotte Fang, NFT's and Free Information</p>
 </div>
 
-The Internet promised a permission‑free cultural commons in which anyone could publish, remix, and learn without gatekeepers. Yet a quarter‑century later, we find ourselves navigating corporate walled gardens, paywalls, and digital‑rights‑management schemes that mimic the rivalrous constraints of physical goods. Meanwhile, artificial‑intelligence models ingest the entire corpus of human expression and remix it at super‑human speed, raising urgent questions about how creators will be rewarded when scarcity disappears.
+{/*
 
-This essay proposes diffuse value capture: a design space of mechanisms that reward contributors to the commons without imposing artificial scarcity. The goal is to realign incentives so that value flows proportionally to those who create it—even when their work is freely shared, forked, and remixed.
+The Internet promised a permission‑free cultural commons in which anyone could publish, remix, and learn without gatekeepers, a move from a top down read-only medium to a bottom up read-write medium. Yet a quarter‑century later, we find ourselves navigating corporate walled gardens, paywalls, and digital‑rights‑management schemes that mimic the rivalrous constraints of physical goods. Meanwhile, artificial‑intelligence models ingest the entire corpus of human expression and remix it at super‑human speed, raising urgent questions about how creators will be rewarded when scarcity disappears.
 
-Imagine two people, Alice and Bob. They both work 40 hours per week. Alice creates 10 units of value, and captures 9, almost all the value created. Bob creates 100 units of value, but only captures 10.
+This essay proposes a framework for thinking about value capture in the new AI era of the 2020's, diffuse value capture.
 
-Alice captures 90% of the value created, and Bob captures 10% with the same amount of of, but Bob still captures more value than Alice.
+a design space of mechanisms that reward contributors to the commons without imposing artificial scarcity. The goal is to realign incentives so that value flows proportionally to those who create it—even when their work is freely shared, forked, and remixed.
+
+*/}
+
+Imagine two people, Alice and Bob. They both work 40 hours per week at a similar task trying to capture value in various forms like money and social capital. Alice creates 10 units of value, and captures 9, almost all the value created. Bob creates 100 units of value, but only captures 10.
+
+Alice captures 90% of the value created, and Bob captures 10%, but Bob still captures slightly more value than Alice with the same amount of work. It dosen't always work this way, often the person who is trying to capture a higher percentage of the value created is the one who is able to capture more value. Alice and Bob are two ends of a spectrum I call direct value capture and diffuse value capture.
+
+In this essay I will explore the idea that diffuse value capture becoming an increasingly important phenomenon as we move into a new era of AI automation built on a remix paradigm, and better aligns with the way value is created in the real world, specifically in digital cultural production.
 
 The problem of monetizing digital content is reproducible information is effectively infinite in supply, leaving it impossible to price, free like air. Primitive attempts at digital monetization try to create an artificial scarcity through paywalls and DRM, technically ineffective against any piracy but backed by socialized pressure and threats of legal action. These models of course unethically restrict the free flow of information.
 
 Digital scarcity instituted by legal infrastructure was an awkward, artificial and ethically problematic intervention on the free flow of information; NFTs managing scarcity as a trustless bookkeeping allows accessibility to be achieved without undermining production incentives.
 
+In the Grundrisse “Fragment on Machines,” Marx imagines a moment when science, technique, and social cooperation are so deeply sedimented in machinery and communication networks that “general social knowledge”—what he calls the general intellect—becomes the decisive productive force. Value is now embodied less in any individual’s labour‐time and more in the collective intelligence crystallised in code, databases, and automated systems.
+
 Technology is deflationary, as technology improves and allows us to do things better and faster with less work, the prices of goods and services should fall, but they don't for various reasons.
+
+<Image 
+  src={YouStoleMyIdeaImage} 
+  alt="You stole my idea meme in ghibli-like style" 
+  width={1536} 
+  height={1024} 
+  class="rounded-md"
+/>
 
 You could argue from an austrian economics perspective that the prices of goods and services should fall as technology improves, but they don't because of the way money is created and controlled. Simply moving to something like a global Bitcoin monetary standard might be a major component of a diffuse value capture system.
 
@@ -48,3 +69,6 @@ This feels like a return to pre-industrial models of cultural production, but wi
 With AI and crypto, we're moving toward systems where value capture aligns better with value creation. You contribute to the commons, and the commons finds ways to support you. Not through monopoly rights, but through attribution mechanisms, micropayments, reputation systems.
 
 ---
+
+
+
