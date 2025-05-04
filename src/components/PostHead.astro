@@ -10,36 +10,13 @@ const { post } = Astro.props
 
 const title = post.data.title || SITE.title
 const description = post.data.description || SITE.description
-const image = new URL('/static/1200x630.png', Astro.site)
+const defaultImage = new URL('/static/1200x630.png', Astro.site).toString()
 const author = post.data.authors ? post.data.authors.join(', ') : SITE.author
 
-// Ensure image URL is formed correctly for social sharing
-const getImageUrl = () => {
-  if (!post.data.image) return image.href;
-  
-  // Check if the image is an object with src property (from Astro image integration)
-  if (typeof post.data.image === 'object' && 'src' in post.data.image) {
-    return new URL(post.data.image.src, Astro.site).toString();
-  }
-  
-  // For string URLs
-  const imageStr = String(post.data.image);
-  
-  // For full URLs, use them directly
-  if (imageStr.startsWith('http')) {
-    return imageStr;
-  }
-  
-  // For relative paths, resolve them against the site URL
-  const imageUrl = new URL(
-    imageStr.replace(/^\.\//, ''),
-    new URL(`/blog/${post.id.split('/')[0]}/`, Astro.site)
-  );
-  
-  return imageUrl.toString();
-};
+// We'll use a direct path to the image in the public directory
+const postId = post.id.split('/')[0]; // Get the post ID (folder name)
+const socialImageUrl = new URL(`/og/${postId}.png`, Astro.site).toString();
 
-const socialImageUrl = getImageUrl();
 ---
 
 <title>{`${title} | ${SITE.title}`}</title>
