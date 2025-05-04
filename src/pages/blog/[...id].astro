@@ -29,13 +29,11 @@ const { next, prev } = await getAdjacentPosts(currentPostId)
 const authors = await parseAuthors(post.data.authors ?? [])
 ---
 
-<Layout isWide>
+<Layout>
   <PostHead slot="head" post={post} />
-  <section
-    class="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-8"
-  >
+  <section class="flex flex-col gap-y-8">
     <!--
-    <div class="col-start-2">
+    <div>
       <Breadcrumbs
         items={[
           { href: '/blog', label: 'Blog', icon: 'lucide:archive' },
@@ -51,11 +49,11 @@ const authors = await parseAuthors(post.data.authors ?? [])
           alt={post.data.title}
           width={1200}
           height={630}
-          class="col-start-2 w-full object-cover mb-2"
+          class="w-full object-cover mb-2"
         />
       )
     }
-    <section class="col-start-2 flex flex-col gap-y-6">
+    <section class="flex flex-col gap-y-6">
       <div class="flex flex-col">
         <!--
         <h1
@@ -138,7 +136,7 @@ const authors = await parseAuthors(post.data.authors ?? [])
     {headings.length > 0 && <TableOfContents headings={headings} />}
     -->
 
-    <article class="prose col-start-2 max-w-none mt-[-2rem]">
+    <article class="prose mt-[-2rem]">
       <Content />
     </article>
 
