@@ -2,7 +2,7 @@
 
 @layer components {
   .prose {
-    @apply text-foreground text-2xl leading-snug;
+    @apply text-foreground text-2xl leading-[1.2];
 
     p {
       @apply text-foreground/90 tracking-normal my-6 not-first:mt-6;
