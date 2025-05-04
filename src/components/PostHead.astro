@@ -33,7 +33,7 @@ const getImageUrl = () => {
   // For relative paths, resolve them against the site URL
   const imageUrl = new URL(
     imageStr.replace(/^\.\//, ''),
-    new URL(`/content/blog/${post.id}/`, SITE.href)
+    new URL(`/blog/${post.id.split('/')[0]}/`, Astro.site)
   );
   
   return imageUrl.toString();
