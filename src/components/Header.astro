@@ -15,12 +15,12 @@ import logo from '../../public/static/logo.png'
   <div
     class="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-4 p-2 px-2"
   >
-    <Link href="/" class="flex shrink-0 items-center gap-2 text-xl font-normal">
+    <Link href="/" class="flex shrink-0 items-center gap-2 text-xl font-medium">
       <Image src={logo} alt="Logo" class="size-8" />
       {SITE.title}
     </Link>
     <div class="flex items-center gap-1 md:gap-2">
-      <nav class="hidden items-center gap-2 text-base sm:gap-3 md:flex">
+      <nav class="hidden items-center gap-2 text-sm sm:gap-3 md:flex">
         {
           NAV_LINKS.map((item) => (
             <Link
