@@ -9,11 +9,11 @@
     }
 
     h1 {
-      @apply text-foreground mt-0 mb-8 scroll-m-20 text-6xl leading-tight font-normal tracking-tighter;
+      @apply text-foreground mt-0 mb-8 scroll-m-20 text-6xl leading-13 font-normal tracking-tighter;
     }
 
     h2 {
-      @apply text-foreground mt-10 mb-6 scroll-m-20 text-4xl leading-tight font-normal tracking-tight;
+      @apply text-foreground mt-10 mb-6 scroll-m-20 text-4xl leading-8 font-normal tracking-tight;
     }
 
     h3 {

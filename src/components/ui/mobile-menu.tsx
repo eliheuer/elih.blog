@@ -50,7 +50,7 @@ const MobileMenu = () => {
           <DropdownMenuItem key={item.href} asChild>
             <a
               href={item.href}
-              className="w-full text-lg font-medium capitalize"
+              className="w-full text-lg font-normal capitalize"
               onClick={() => setIsOpen(false)}
             >
               {item.label}

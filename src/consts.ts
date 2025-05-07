@@ -1,9 +1,9 @@
 import type { IconMap, SocialLink, Site } from '@/types'
 
 export const SITE: Site = {
-  title: 'Eli Heuer’s Blog',
+  title: 'Eli’s Blog',
   description:
-    'astro-erudite is a opinionated, unstyled blogging template—built with Astro, Tailwind, and shadcn/ui.',
+    'A blog about software development, design, Arabic, FOSS, cryptoeconomics, libre graphics, and other things Eli is interested in.',
   href: 'https://elih.blog',
   author: 'Eli Heuer',
   locale: 'en-US',
