@@ -2,18 +2,18 @@
 
 @layer components {
   .prose {
-    @apply text-foreground text-xl leading-[1.5];
+    @apply text-foreground text-xl leading-[1.4];
 
     p {
       @apply text-foreground/90 tracking-normal my-6 not-first:mt-6;
     }
 
     h1 {
-      @apply text-foreground mt-0 mb-8 scroll-m-20 text-6xl leading-13 font-normal tracking-tighter;
+      @apply text-foreground mt-0 mb-8 scroll-m-20 text-6xl leading-14 font-normal tracking-tighter;
     }
 
     h2 {
-      @apply text-foreground mt-10 mb-6 scroll-m-20 text-4xl leading-8 font-normal tracking-tight;
+      @apply text-foreground mt-10 mb-6 scroll-m-20 text-4xl leading-9 font-normal tracking-tight;
     }
 
     h3 {
