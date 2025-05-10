@@ -13,7 +13,7 @@
     }
 
     h2 {
-      @apply text-foreground mt-10 mb-6 scroll-m-20 text-4xl leading-9 font-normal tracking-tight;
+      @apply text-foreground mt-8 mb-8 scroll-m-20 text-4xl leading-9 font-normal tracking-tight;
     }
 
     h3 {
