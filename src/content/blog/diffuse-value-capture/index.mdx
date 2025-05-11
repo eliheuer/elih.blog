@@ -10,6 +10,8 @@ import { Image } from 'astro:assets'
 import YouStoleMyIdeaImage from './you-stole-my-idea.png'
 import Identity from './identity.png'
 import OpenSource from './open-source.png'
+import Pepe from './pepe.jpg'
+import PepeChart from './pepe-chart.png'
 
 # Diffuse Value Capture  
 
@@ -21,7 +23,6 @@ Published May 8th, 2025
 <p>“Blockchain is a naturalistic technology, it would have been developed in a thousand timelines, just as the CPU would have, just as double book accounting or abstracted money would have—or AI will—but copyright law was a confusing and awkward historical aberration.”</p>
 
 <p>—Charlotte Fang, NFT's and Free Information, 2022.</p>
-
 {/*
 <p>“We have already greatly reduced the amount of work that the whole society must do for its actual productivity, but only a little of this has translated itself into leisure for workers because much nonproductive activity is required to accompany productive activity. The main causes of this are bureaucracy and isometric struggles against competition. Free software will greatly reduce these drains in the area of software production. We must do this, in order for technical gains in productivity to translate into less work for us.”</p>
 
@@ -37,13 +38,13 @@ Diffuse value capture—many-to-many, open, positive-sum, recursive.
 
 Direct and diffuse value capture exist on a spectrum, extreams on both ends are almost always unworkable.
 
-At the direct end: bureaucracy, gatekeeping, permissions, managerial overhead, funding politics, user hostile licensing, and complex IP law.
+The direct end has: bureaucracy, gatekeeping, permissions, managerial overhead, funding politics, user hostile licensing, and complex IP law.
 
-At the diffuse end: disorganazation, coordination failure, infighting, extreamist politics, burnout, and a lack of incentives.
+The diffuse end has: disorganazation, coordination failure, infighting, extreamist politics, burnout, and a lack of incentives.
 
 ## 2 Thought Experiment
 
-Imagine two people, Alice and Bob. They both work 30 hours per week at a similar task creating some kind of digital good. They are both trying to capture value from this activity in various forms like money and/or social capital.
+Imagine two people, Alice and Bob. They both work 30 hours per week at a similar task creating some kind of digital good. They are trying to capture value from this activity in various forms like money and/or social capital.
 
 {/*
 Alice and Bob each have different strategies for distribution, intellectual property licensing, and production, as well as different cultural views around originality and authorship in their craft. 
@@ -53,44 +54,45 @@ Alice and Bob each have different strategies for distribution, intellectual prop
 |----------------|-------|-----|
 | Hours worked   | 30    | 30  |
 | Value created  | 10    | 100 |
-| Capture rate   | 90 %  | 10 %|
-| Value captured | <span style="color: #ef4444">9</span> | <span style="color: #22c55e">10</span> |
+| Capture rate   | 90%   | 10% |
+| Value captured | <span style="color:rgb(255, 64, 64)">9</span> | <span style="color:rgb(24, 234, 101)">10</span> |
 
 Alice captures 90% of the value created, and Bob captures 10%, but Bob still captures slightly more value than Alice—one whole unit—with the same amount of work. This is effective diffuse value capture.
 
+There is no upperbound to the amount of value one person can create, so creating 1000 units and captureing 1% would also work, creating 1000000 units and captuing 0.001% would be even better.
+
 ## 3 Authorship & Originality Exist on a Diffuse-to-Direct Spectrum
 
-For most of human history, value capture for cultural production was largely diffuse. People wrote stories based on other stories. They sang songs that were variations of other songs.
+For most of human history, cultural production was largely diffuse. People wrote stories based on other stories. They sang songs that were variations of other songs. Authorship and originality were diffuse, and in many cultures, divine in origin.
 
-Before the invention of the printing press, A poet would write a poem and share it with people. If someone liked it, they would share it with other people.
+Before the invention of the printing press, a poet would write a poem and share it with people. If someone liked it, they would share it with other people. A scribe would make a copy as a manuscript and sell it without permission of the author. This would help the scribe capture value from their craft and the poet would capture value in other ways such as patronage, teaching jobs, or talks and lectures.
 
-A scribe would make a copy as a manuscript and sell it without permission of the author. This would help the scribe capture value from their craft and the poet would capture value in other ways such as patronage, teaching jobs, or talks and lectures.
+The scribe copying the manuscript would help the poet because copying was so difficult and time consuming that every new copy made would significantly increase the likelihood of patronage for the poet. The culture of intellectual property was directly influenced by the current level of technology for copying information.
 
-The scribe copying the manuscript would help the poet because copying was so difficult and time consuming that every new copy made would significantly increase the likelihood of patronage for the poet. The ideas and norms around intellectual property at the time were directly influenced by the current level of technology and automation for copying information.
+Since the invention of the printing press, cultural production has mostly become more direct. Culminating in the pre-internet era of Hollywood, TV, the music industry, and publishing. 
 
-Since the invention of the printing press, value capture for cultural production has mostly become more direct. Culminating in the pre-internet era of Hollywood, the music industry, and publishing.
+At the crest of this wave of direct culture, the personal computer was developed, and planted the seeds for a shift back towards diffuse culture. Not as a return to the pre-industrial models, but new models that are only possible with decentralized global many-to-many computer networks.
 
-At the crest of this wave of direct value capture, the personal computer was developed, and planted the seeds for a cultural shift back towards diffuse value capture. Not as a return to the pre-industrial models of diffuse value capture, but as new internet-native ways to capture value that are only possible with decentralized global many-to-many computer networks.
 
 Remember that culture lags behind technology, there was a 250 year gap between the invention of the printing press and what we now recognize as contemporary IP law and ideas about authorship and originality. So while timelines for cultural shifts are getting shorter, there is still a lag between the technology and the culture.
 
-| Year | Tech / Event | Immediate Reaction | Lasting Legal Shift |
+| Year | Tech/Event | Immediate Reaction | Lasting Legal Shift |
 |------|--------------|--------------------|---------------------|
-| **c. 1450** | Gutenberg's movable-type press | Explosion of vernacular Bibles, pamphlets; authorities panic over heresy. | *None yet* – copying suddenly cheap, rules nonexistent. |
-| **1476** | Caxton sets up England's first press | Crown issues ad-hoc printing patents, but enforcement patchy. | Still *no copyright*—control via favors & guilds. |
-| **1517** | Luther's Ninety-five Theses | Printed and distributed across Europe; sparks Reformation. | Demonstrates power of print to bypass traditional gatekeepers. |
-| **1557** | Royal Charter for the Stationers' Company | Guild monopoly lets Crown censor by licensing printers. | *Corporate control* substitutes for author rights. |
-| **1662** | Licensing Act renewed | Censorship tightens; printers need a license or face seizure. | Parliament grows wary of monopoly but has no alternative. |
-| **1695** | Licensing Act lapses | *14-year vacuum*—anyone may print; pamphlet culture booms. | Chaos forces MPs to rethink "who owns a text?" |
-| **1710** | **Statute of Anne** | For the first time, *authors*, not printers, receive a 14-year exclusive right. | Birth of modern copyright—arrives **≈250 yrs after the press**. |
+| 1450 | Gutenberg's movable-type printing press | Explosion of vernacular Bibles, pamphlets; authorities panic over heresy. | None yet, copying suddenly cheap, rules nonexistent. |
+| 1476 | Caxton sets up England's first press | Crown issues ad-hoc printing patents, but enforcement is patchy. | Still no copyright—control via favors & guilds. |
+| 1517 | Martin Luther's Ninety-five Theses | Printed and distributed across Europe, sparks Reformation. | Demonstrates power of print to bypass traditional gatekeepers. |
+| 1557 | Royal Charter for the Stationers' Company | Guild monopoly lets Crown censor by licensing printers. | Corporate control substitutes for author rights. |
+| 1662 | Licensing of the Press Act | Censorship tightens; printers need a license or face seizure. | Parliament grows wary of monopoly but has no alternative. |
+| 1695 | Licensing of the Press Act Lapses | 14-year vacuum—anyone may print; pamphlet culture booms. | Chaos forces lawmakers in Parliament to rethink “who owns a text”? |
+| 1710 | Statute of Anne | For the first time, authors, not printers, receive a 14-year exclusive right. | The birth of modern copyright—arrives 250 yrs after the printing press. |
 
-Critics of capitalism often see direct value capture as inherent to capitalism, but I suspect it is more tied to the current level of technology and automation, and today due to the aforementioned cultural lag behind technology.
+We are only just at the dawn of the transition from [TV to the Internet](https://youtu.be/-BOeTJz-Eag), and the cultural lag behind technology is still significant.
 
 {/*
-In a free market your margin is someone else's opportunity, and there is an endless supply of people that are willing to let some value go uncaptured in order to challenge a stagnant incumbent in the market.
-*/}
+Critics of capitalism often see one-to-many direct culture as inherent to capitalism, and many-to-many diffuse culture as the counter to the capitalist spirit, but I suspect capitalism's prefrance for direct or diffuse culture is more tied to the current level of technology and automation, and today due to the aforementioned cultural lag behind technology. In a free market your margin is someone else's opportunity, and in the absense of govenment intervention there is an endless supply of people that are willing to let some value go uncaptured in order to challenge a stagnant incumbent in the market.
 
-Things like S&P 500 ETFs and the Boglehead investing strategy can be seen as primitive forms of diffuse value capture fully aligned with mainstream capitalism. It's a way to diffusely capture value from the economy in aggregate with minimal bureaucracy and middlemen, whatever value you create but fail to capture, you can get some of it back through a broad market index.
+Things like S&P 500 ETFs and the Boglehead investing strategy can be seen as primitive forms of diffuse value capture fully aligned with mainstream capitalism. It's a way to diffusely capture value from the economy in aggregate with minimal bureaucracy and middlemen, whatever value you create but fail to capture, you can get some of it back through a broad market index. 
+*/}
 
 {/*
 Marx himself I think saw the potential for diffuse value capture in advanced capitalism. Much of the failures of the Left since then can be seen as a result of the tyranny and bureaucracy required by trying to solve the problems created by direct value capture with more direct value capture and transfer.
@@ -109,15 +111,13 @@ In the Grundrisse "Fragment on Machines," Marx imagines a moment when science, t
 
 Contemporary culture, finance, and law are skewed towards direct value capture, but recent advancements in AI are starting to exacerbate longstanding flaws in this orientation. Neural networks are diffuse in nature, direct value capture does not map well onto them.
 
-Art, music, code, design, and other cultural products, culled from the open web, are diffused across latent space. The output is at once everyone and no one—impossible to decompose into source pixels that a rightsholder can use direct value capture on. Latent diffusion turns this into a phase-change problem: solids (individual works) melt into air (weight vectors).
-
-Once creativity is encoded as a multi-trillion-parameter fog, the idea that you can meter each droplet of inspiration the way you meter a DVD sale becomes economically and technically incoherent.
+Art, music, code, design, and other cultural products, culled from the open web, are diffused across latent space. Once creativity is encoded as a multi-trillion-parameter fog, the idea that you can meter each droplet of inspiration the way you meter a DVD sale becomes economically and technically incoherent. Latent diffusion turns this into a phase-change problem: solids (individual works) melt into air (weight vectors).
 
 Listen to conversations about AI and intellectual property and you will see there is very little consensus on how to continue the current IP system in this new AI era. Calls for radical reforms that used to be relegated to the lunatic fringe are gaining traction in mainstream tech circles.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I agree</p>&mdash; gorklon rust (@elonmusk) <a href="https://twitter.com/elonmusk/status/1910840422789763511?ref_src=twsrc%5Etfw">April 11, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-A need for diffuse value capture systems is a direct consequence of technological trends:
+A trend toward diffuse cultural production is a direct consequence of technological trends:
 
 1. Increased dominance of decentralized networks over traditional media and finance. 
 
@@ -151,7 +151,6 @@ Even among programmers, there is a misalignment between value creation and value
 
 Free and open-source software culture outside of crypto has been unable to develop effective value capture and coordination systems, and has largely been relegated to controlled opposition, free/cheap labor, Resume slop to get jobs, and pawns in commoditize-your-complement schemes.
 
-
 <Image 
   src={OpenSource} 
   alt="A meme about open source without diffuse value capture" 
@@ -166,7 +165,25 @@ Despite anti-consumer behavior from big tech incumbents, free and open-source so
 
 Technology is deflationary, as technology improves and allows us to do things better and faster with less work, the prices of goods and services should fall, but they don't for various reasons.
 
+Pepe the Frog is a prime example of the shift from direct to diffuse culture, and will without a doubt be studied in art history books for centuries to come. 
 
+<Image 
+  src={Pepe} 
+  alt="Pepe" 
+  width={1200} 
+  height={640} 
+  class="rounded-md"
+/>
+
+Pepe the Frog is a prime example of the shift from direct to diffuse culture, and will without a doubt be studied in art history books for centuries to come. 
+
+<Image 
+  src={PepeChart} 
+  alt="Pepe-Chart" 
+  width={1200} 
+  height={640} 
+  class="rounded-md"
+/>
 
 <blockquote class="twitter-tweet">
   <p lang="en" dir="ltr">
