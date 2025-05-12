@@ -12,6 +12,8 @@ import Identity from './identity.png'
 import OpenSource from './open-source.png'
 import Pepe from './pepe.jpg'
 import PepeChart from './pepe-chart.png'
+import Hpos from './hpos.webp'
+import Shanzhai from './shanzhai.jpg'
 
 # Diffuse Value Capture  
 
@@ -38,7 +40,7 @@ Diffuse value capture—many-to-many, open, positive-sum, recursive.
 
 Direct and diffuse value capture exist on a spectrum, extreams on both ends are almost always unworkable.
 
-The direct end has: bureaucracy, gatekeeping, permissions, managerial overhead, funding politics, user hostile licensing, and complex IP law.
+The direct end has: bureaucracy, gatekeeping, permissions, managerial overhead, funding politics, user hostile licensing, metrics fixation, and complex IP law.
 
 The diffuse end has: disorganazation, coordination failure, infighting, extreamist politics, burnout, and a lack of incentives.
 
@@ -63,16 +65,19 @@ There is no upperbound to the amount of value one person can create, so creating
 
 ## 3 Authorship & Originality Exist on a Diffuse-to-Direct Spectrum
 
-For most of human history, cultural production was largely diffuse. People wrote stories based on other stories. They sang songs that were variations of other songs. Authorship and originality were diffuse, and in many cultures, divine in origin.
+For most of human history, cultural production was largely diffuse. People wrote stories based on other stories. They sang songs that were variations of other songs. Authorship and originality were diffuse.
+
+Observe an artclass for young children and you will rarly see them sign their work, this behavior is almost allways done at the suggestion of an adult.
 
 Before the invention of the printing press, a poet would write a poem and share it with people. If someone liked it, they would share it with other people. A scribe would make a copy as a manuscript and sell it without permission of the author. This would help the scribe capture value from their craft and the poet would capture value in other ways such as patronage, teaching jobs, or talks and lectures.
 
 The scribe copying the manuscript would help the poet because copying was so difficult and time consuming that every new copy made would significantly increase the likelihood of patronage for the poet. The culture of intellectual property was directly influenced by the current level of technology for copying information.
 
-Since the invention of the printing press, cultural production has mostly become more direct. Culminating in the pre-internet era of Hollywood, TV, the music industry, and publishing. 
+Auctor (Latin root of “author”) meant someone who added authority to a text, not necessarily its sole creator. Most works circulated anonymously or under famous names to lend prestige. Almost certianly, ancint history is full of creative original thinkers who were erased from history by authors who were better at self promotion and distribution.
+
+Since the European invention of the printing press, cultural production has mostly become more direct. Culminating in the pre-internet era of Hollywood, TV, the music industry, and publishing. 
 
 At the crest of this wave of direct culture, the personal computer was developed, and planted the seeds for a shift back towards diffuse culture. Not as a return to the pre-industrial models, but new models that are only possible with decentralized global many-to-many computer networks.
-
 
 Remember that culture lags behind technology, there was a 250 year gap between the invention of the printing press and what we now recognize as contemporary IP law and ideas about authorship and originality. So while timelines for cultural shifts are getting shorter, there is still a lag between the technology and the culture.
 
@@ -85,17 +90,46 @@ Remember that culture lags behind technology, there was a 250 year gap between t
 | 1662 | Licensing of the Press Act | Censorship tightens; printers need a license or face seizure. | Parliament grows wary of monopoly but has no alternative. |
 | 1695 | Licensing of the Press Act Lapses | 14-year vacuum—anyone may print; pamphlet culture booms. | Chaos forces lawmakers in Parliament to rethink “who owns a text”? |
 | 1710 | Statute of Anne | For the first time, authors, not printers, receive a 14-year exclusive right. | The birth of modern copyright—arrives 250 yrs after the printing press. |
+| 1910 | Qing Copyright Code | Short-lived but modeled on European statutes | Real enforcement waited until the PRC's 1990 law |
 
 We are only just at the dawn of the transition from [TV to the Internet](https://youtu.be/-BOeTJz-Eag), and the cultural lag behind technology is still significant.
 
+## 4 Neo-China Arives from the Future
+
+<div class="pl-6 my-8 [&>*]:text-muted-foreground">
+<p>“The seal stamps on old Chinese paintings are fundamentaly different from the signatures used in European paintings. Primarily they do not express authorship that might have authenticated the picture, therby making it unassailable. Instead, most seal stamps come from connoisseurs or collectors who inscribe themselves into the picture not only through their seal but also through their commentaries. Here art is a communicative, interactive practice that constantly changes even the artwork's appearance. Subsequent viewers of the picture take part in its creation.”</p>
+
+<p>—Byung-Chul Han, [Shanzhai 山寨](https://youtu.be/hpADLkWvAHA), 2017.</p>
+</div>
+
+The diffuse-to-direect spectrum shifts regionally. The Far East has longstanding cultural diffenences in views of authorship and originality that are not purely due to avaible technology. The Chinese idea of the original is determined not by a unique act of creation, but by unending process, not by definitive identity but by constant change. Skillful reference signalls erudition; originality is in nuanced re-combination, not radical newness.
+
+<Image 
+  src={Hpos} 
+  alt="Hpos" 
+  width={450} 
+  height={600} 
+  class="rounded-md"
+/>
+
+In late 2024 DeepSeek-AI quietly open-sourced DeepSeek LLM 7B/67B, trained from scratch on a 2-trillion-token bilingual corpus and already edging past Llama 2 70B on code and reasoning tasks.
+ 
+By early 2025 it followed with DeepSeek R1/R2, a 671-billion-parameter mixture-of-experts model that reaches GPT-4-class performance while running on commodity Chinese silicon and a training budget of roughly $5-6 million—two orders of magnitude below U.S. flagships. 
+
+DeepSeek's prenence on GitHub and HuggingFace is as striking as its benchmark scores. The effect is classic shanzhai: once the weights hit the torrent networks, dozens of regional forks sprang up—Indonesian, Arabic, Urdu—patched for local idioms. The cost-to-copy a frontier model has collapsed to the price of downloading 100 GB, and every copy invites further improvement.
+
+Western incumbents still cling to a direct value-capture mindset—API call metering, secret weights, NDAs—while Chinese labs treat the model itself as advertising for downstream services, hardware, prestige, and alpha for their AI quant funds.
+
+DeepSeek is a prime example of diffuse value capture. It channels centuries of permissive reuse ethos into the hottest technology in the world—and it arrives just as American IP maximalists and saftyist lose the plot.
+
+The specter of a “Chinese century” is therefore not just about GDP or rare-earth supply chains; it’s about an ideological wedge between open-source abundance and closed-source scarcity. If the most capable models are the most forkable, the center of gravity for cultural production may shift eastward by default, carried on the BitTorrent swarm of model checkpoints rather than container ships of plastic toys.
+
 {/*
-Critics of capitalism often see one-to-many direct culture as inherent to capitalism, and many-to-many diffuse culture as the counter to the capitalist spirit, but I suspect capitalism's prefrance for direct or diffuse culture is more tied to the current level of technology and automation, and today due to the aforementioned cultural lag behind technology. In a free market your margin is someone else's opportunity, and in the absense of govenment intervention there is an endless supply of people that are willing to let some value go uncaptured in order to challenge a stagnant incumbent in the market.
+Critics of capitalism often see one-to-many direct culture as inherent to capitalism, and many-to-many diffuse culture as communist, but I suspect capitalism's prefrance for direct or diffuse culture is more tied to the current level of technology and automation, and today due to the aforementioned cultural lag behind technology. In a free market your margin is someone else's opportunity, and in the absense of govenment intervention there is an endless supply of people that are willing to let some value go uncaptured in order to challenge a stagnant incumbent in the market.
 
 Things like S&P 500 ETFs and the Boglehead investing strategy can be seen as primitive forms of diffuse value capture fully aligned with mainstream capitalism. It's a way to diffusely capture value from the economy in aggregate with minimal bureaucracy and middlemen, whatever value you create but fail to capture, you can get some of it back through a broad market index. 
-*/}
 
-{/*
-Marx himself I think saw the potential for diffuse value capture in advanced capitalism. Much of the failures of the Left since then can be seen as a result of the tyranny and bureaucracy required by trying to solve the problems created by direct value capture with more direct value capture and transfer.
+Marx himself I think saw the potential for diffuse value capture in advanced capitalism. Much of the failures of the Left since then can be seen as a result of the tyranny and bureaucracy required by trying to solve the problems created by direct value capture with more direct value capture and transfer. 
 
 <div class="pl-6 my-8 [&>*]:text-muted-foreground">
 <p>The development of fixed capital indicates to what degree general social knowledge has become a direct force of production, and to what degree, hence, the conditions of the process of social life itself have come under the control of the general intellect and been transformed in accordance with it.</p>
@@ -106,8 +140,7 @@ Marx himself I think saw the potential for diffuse value capture in advanced cap
 In the Grundrisse "Fragment on Machines," Marx imagines a moment when science, technique, and social cooperation are so deeply sedimented in machinery and communication networks that "general social knowledge"—what he calls the general intellect—becomes the decisive productive force. Value is now embodied less in any individual's labour-time and more in the collective intelligence crystallised in code, databases, and automated systems. It's hard not to see this as a description of the current state of the internet and AI.
 */}
 
-
-## 4 Neural Networks are Diffuse 
+## 5 Neural Networks are Diffuse 
 
 Contemporary culture, finance, and law are skewed towards direct value capture, but recent advancements in AI are starting to exacerbate longstanding flaws in this orientation. Neural networks are diffuse in nature, direct value capture does not map well onto them.
 
@@ -127,7 +160,7 @@ A trend toward diffuse cultural production is a direct consequence of technologi
  
 This isn't about political will or preferences; information "wants" to be free like water wants to flow down, it's a constant unerring unidirectional force that never gets reversed with each barrier it breaches. Attempts to restrict the internet may slow it down, but never succeed in stopping it in any timeline.
 
-## 5 The Hacker Ethic & Free Information
+## 6 The Hacker Ethic & Free Information
 
 <div class="pl-6 my-8 [&>*]:text-muted-foreground">
 <p>The precepts of this revolutionary (early) Hacker Ethic were not so much debated and discussed as silently agreed upon. No manifestos were issued. No missionaries tried to gather converts. The computer did the converting.</p>
@@ -161,7 +194,7 @@ Free and open-source software culture outside of crypto has been unable to devel
 
 Despite anti-consumer behavior from big tech incumbents, free and open-source software mostly can't compete with proprietary alternatives. The incentives and coordination mechanisms are missing.
 
-## 6 Crypto & Diffuse Value Capture
+## 7 Crypto & Diffuse Value Capture
 
 Technology is deflationary, as technology improves and allows us to do things better and faster with less work, the prices of goods and services should fall, but they don't for various reasons.
 
@@ -201,7 +234,7 @@ You could argue from an austrian economics perspective that the prices of goods 
 Due to the internet and the personal computer, cultural production has moved from a read-only medium to a read-write medium.
 
 
-## 7 Post-Authorship
+## 8 Post-Authorship
 
 The further you move in the direct value capture direction of the spectrum, the more you need to rely on your identity as a singular human to capture value. This is often at odds with how cultural production works in the real world.
 
@@ -244,7 +277,7 @@ The problem of monetizing digital content is reproducible information is effecti
 
 Distributed authorship is the future because it's a direct consequence of technological trends, as all culture follows from: increased dominance of decentralized content distribution networks over traditional media, massively accelerated AI content production built on a remix paradigm, hyperfinancialization blurring leisure/consumption and labor/creation online, all work to erode the artificial attempts to extend the pre-digital one-to-many media paradigm surviving now only through the dubiously defensible and ethically incoherent distortions of IP/copyright law pushed by legacy media companies and the vague pseudomarxist anti-AI youth political movement, both against the heavier political weight of the tech industry; not to mention rising Chinese soft power and global financial multipolarity. I've argued this is the future of culture for a decade because these trends were all obvious a decade ago and it's now so obvious today it feels trite to repeat, yet here we are. This isn't about political will or preferences; information "wants" to be free like water wants to flow down, it's a constant unerring unidirectional force that never gets reversed with each barrier it breaches. Attempts to restrict the internet—global networking, open content distribution, digital free association, runaway self-organizing culture—may slow it down, but it never succeeds in stopping it in any timeline.
 
-## 8 Incentivizing post-authorship commons-based peer production.
+## 9 Incentivizing post-authorship commons-based peer production.
 
 Working for your bags.
 
@@ -256,7 +289,6 @@ This feels like a return to pre-industrial models of cultural production, but wi
 
 With AI and crypto, we're moving toward systems where value capture aligns better with value creation. You contribute to the commons, and the commons finds ways to support you. Not through monopoly rights, but through attribution mechanisms, micropayments, reputation systems.
 
-## 9 Colophon
+## Colophon
 
 This post is typeset in Bezy Grotesk.
-If you like this post, 
