@@ -9,7 +9,7 @@ const { prevPost, nextPost } = Astro.props
 
 <nav class="grid grid-cols-1 gap-4 sm:grid-cols-2">
   <Link
-    href={nextPost ? `/blog/${nextPost.id}` : '#'}
+    href={nextPost ? `/${nextPost.id}` : '#'}
     class={cn(
       buttonVariants({ variant: 'outline' }),
       'rounded-xl group flex items-center justify-start size-full',
@@ -29,7 +29,7 @@ const { prevPost, nextPost } = Astro.props
     </div>
   </Link>
   <Link
-    href={prevPost ? `/blog/${prevPost.id}` : '#'}
+    href={prevPost ? `/${prevPost.id}` : '#'}
     class={cn(
       buttonVariants({ variant: 'outline' }),
       'rounded-xl group flex items-center justify-end size-full',
