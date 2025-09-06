@@ -15,8 +15,6 @@ astro-erudite is an opinionated, unstyled static blogging template built with [A
 | ------------------------------------------ | ------------------------------------------ |
 | ![Preview 3](/public/static/preview-3.png) | ![Preview 4](/public/static/preview-4.png) |
 
-> [!NOTE]
-> To learn more about why this template exists, read [The State of Static Blogs in 2024](https://astro-erudite.vercel.app/blog/the-state-of-static-blogs), where I share my take on what constitutes a great blogging template and my goals while developing this one.
 
 ---
 

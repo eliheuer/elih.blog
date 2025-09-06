@@ -52,12 +52,7 @@ const blog = await getAllPosts()
             class="text-foreground"
             underline
             external>GitHub</Link
-          > repository. To learn more about why this template exists, read this blog
-          post: <Link
-            href="/blog/the-state-of-static-blogs"
-            class="text-foreground"
-            underline>The State of Static Blogs in 2024</Link
-          >.
+          > repository.
         </p>
       </div>
     </div>
@@ -76,11 +71,9 @@ const blog = await getAllPosts()
         ))
       }
     </ul>
+    <!-- "See all posts" button temporarily disabled - only 2 posts currently -->
+    <!--
     <div class="flex justify-center">
-      <!-- 
-        Previous version: class={buttonVariants({ variant: 'ghost' }) + ' group'}
-        Changed to outline variant to match the styling of other outlined elements on the site while preserving hover effects
-      -->
       <Link
         href="/"
         class={buttonVariants({ variant: 'outline' }) + ' group'}
@@ -91,5 +84,6 @@ const blog = await getAllPosts()
         >
       </Link>
     </div>
+    -->
   </section>
 </Layout>
